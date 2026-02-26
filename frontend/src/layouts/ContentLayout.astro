@@ -16,6 +16,11 @@ const pathname = Astro.url.pathname;
 <Layout title={title} description={description}>
   <PageHeader title={title} pathname={pathname} />
   <div class="mx-auto max-w-7xl px-6 py-12">
+    <!-- Mobile secondary navigation (reemplaza al sidebar oculto en < lg) -->
+    <div class="mb-8 lg:hidden">
+      <SidebarNav section={section} currentPath={pathname} />
+    </div>
+
     <div class="flex gap-12">
       <!-- Main content -->
       <main class="min-w-0 flex-1 rounded-xl bg-gray-50 p-8 shadow-sm">

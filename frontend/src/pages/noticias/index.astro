@@ -1,0 +1,16 @@
+---
+import { sectionMeta } from "@/lib/navigation";
+import SectionLayout from "@/layouts/SectionLayout.astro";
+
+const meta = sectionMeta["noticias"];
+---
+
+
+<SectionLayout title={meta.title} description={meta.description}>
+  <h2>Noticias del CRUV</h2>
+  <p>
+    Próximamente se mostrarán las noticias y comunicados oficiales del Centro Regional Universitario de Veraguas,
+    ordenados cronológicamente.
+  </p>
+</SectionLayout>
+

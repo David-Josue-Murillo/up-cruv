@@ -179,12 +179,12 @@
     font-size: 0.875rem;
     background: linear-gradient(
       135deg,
-      #b8932a 0%,
-      #d4af37 20%,
-      #f5df99 45%,
-      #d4af37 55%,
-      #e4bb44 80%,
-      #d4af37 100%
+      var(--color-gold-600) 0%,
+      var(--color-gold-500) 20%,
+      var(--color-gold-200) 45%,
+      var(--color-gold-500) 55%,
+      var(--color-gold-400) 80%,
+      var(--color-gold-500) 100%
     );
     color: var(--color-green-950);
     text-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);
@@ -207,12 +207,12 @@
   .btn-gold:hover {
     background: linear-gradient(
       135deg,
-      #d4af37 0%,
-      #e4bb44 20%,
-      #faf0cc 45%,
-      #e4bb44 55%,
-      #f5df99 80%,
-      #e4bb44 100%
+      var(--color-gold-500) 0%,
+      var(--color-gold-400) 20%,
+      var(--color-gold-100) 45%,
+      var(--color-gold-400) 55%,
+      var(--color-gold-200) 80%,
+      var(--color-gold-400) 100%
     );
     box-shadow:
       0 4px 24px rgba(212, 175, 55, 0.5),
@@ -232,12 +232,12 @@
     font-size: 0.875rem;
     background: linear-gradient(
       135deg,
-      #b8932a 0%,
-      #d4af37 20%,
-      #f5df99 45%,
-      #d4af37 55%,
-      #e4bb44 80%,
-      #d4af37 100%
+      var(--color-gold-600) 0%,
+      var(--color-gold-500) 20%,
+      var(--color-gold-200) 45%,
+      var(--color-gold-500) 55%,
+      var(--color-gold-400) 80%,
+      var(--color-gold-500) 100%
     );
     color: var(--color-green-950);
     text-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);
@@ -315,26 +315,26 @@
 
   /* Light section — covers the dark canvas like paper on velvet */
   .section-light {
-    background-color: #f3f6f5;
-    color: #1a2120;
+    background-color: var(--color-gray-50);
+    color: var(--color-gray-900);
   }
 
   /* Alternate light section — subtle mint */
   .section-light-alt {
-    background-color: #edf8f3;
-    color: #1a2120;
+    background-color: var(--color-green-50);
+    color: var(--color-gray-900);
   }
 
   /* Green section — institutional dark green */
   .section-green {
-    background-color: #0b3123;
+    background-color: var(--color-green-900);
     color: #ffffff;
   }
 
   /* Card for light backgrounds — shadow elevation instead of glass */
   .light-card {
     background-color: #ffffff;
-    border: 1px solid #e4eae8;
+    border: 1px solid var(--color-gray-100);
     border-radius: 1rem;
     box-shadow:
       0 1px 3px rgba(11, 49, 35, 0.06),
@@ -348,7 +348,7 @@
   }
 
   .light-card:hover {
-    border-color: #d4af37;
+    border-color: var(--color-gold-500);
     box-shadow:
       0 4px 16px rgba(11, 49, 35, 0.12),
       0 0 0 1px rgba(212, 175, 55, 0.15);
@@ -412,17 +412,17 @@
     margin-bottom: 0.5rem;
     font-size: 1.25rem;
     font-weight: 700;
-    color: #0b3123;
+    color: var(--color-green-900);
   }
   .prose p {
     margin-bottom: 1rem;
     line-height: 1.85;
-    color: #3c4946;
+    color: var(--color-gray-700);
   }
   .prose ul, .prose ol {
     margin-bottom: 1rem;
     padding-left: 1.5rem;
-    color: #3c4946;
+    color: var(--color-gray-700);
   }
   .prose li {
     margin-bottom: 0.25rem;
@@ -439,14 +439,14 @@
   }
   .prose strong {
     font-weight: 700;
-    color: #1a2120;
+    color: var(--color-gray-900);
   }
   .prose blockquote {
     margin: 1.5rem 0;
     border-left: 4px solid var(--color-gold-600);
     padding: 0.75rem 1.25rem;
     background-color: rgba(212, 175, 55, 0.08);
-    color: #3c4946;
+    color: var(--color-gray-700);
     border-radius: 0 0.75rem 0.75rem 0;
     font-style: italic;
   }
