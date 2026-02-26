@@ -1,0 +1,57 @@
+---
+import { getSectionLinks, navItems } from "../../lib/navigation";
+
+interface Props {
+  section: string;
+  currentPath: string;
+}
+
+const { section, currentPath } = Astro.props;
+const links = getSectionLinks(section);
+const sectionItem = navItems.find((n) => n.href === `/${section}`);
+const sectionLabel = sectionItem?.label ?? section;
+const sectionHref = sectionItem?.href ?? `/${section}`;
+---
+
+<nav aria-label={`Navegación de ${sectionLabel}`} class="sticky top-24">
+  <div class="glass-card p-5">
+    <a
+      href={sectionHref}
+      class:list={[
+        "block text-sm font-bold uppercase tracking-wide transition-colors",
+        currentPath === sectionHref
+          ? "text-gold-400"
+          : "text-white/50 hover:text-gold-400",
+      ]}
+    >
+      {sectionLabel}
+    </a>
+
+    <ul class="mt-3 space-y-0.5">
+      {links.map((link) => {
+        const isActive = currentPath === link.href;
+        return (
+          <li>
+            <a
+              href={link.href}
+              class:list={[
+                "flex items-center gap-2 rounded-lg px-3 py-2 text-sm transition-colors",
+                isActive
+                  ? "bg-gold-500/10 font-semibold text-gold-400"
+                  : "text-white/60 hover:bg-white/5 hover:text-gold-400",
+              ]}
+            >
+              <span
+                class:list={[
+                  "h-1.5 w-1.5 rounded-full",
+                  isActive ? "bg-gold-500 shadow-[0_0_6px_rgba(212,175,55,0.5)]" : "bg-white/20",
+                ]}
+              />
+              {link.label}
+            </a>
+          </li>
+        );
+      })}
+    </ul>
+  </div>
+</nav>

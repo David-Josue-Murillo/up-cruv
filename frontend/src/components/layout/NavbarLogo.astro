@@ -1,0 +1,25 @@
+---
+import { Image } from "astro:assets";
+import logoImg from "@/assets/images/logo.webp";
+
+interface Props {
+  transparent?: boolean;
+}
+
+const { transparent = false } = Astro.props;
+---
+
+<a href='/' class='flex items-center gap-3 py-3' aria-label='CRUV — Inicio'>
+  <div class='flex h-10 w-10 items-center justify-center'>
+    <Image
+      src={logoImg}
+      alt='Escudo de la Universidad de Panamá'
+      class='h-auto w-auto drop-shadow-[0_0_20px_rgba(212,175,55,0.3)]'
+      loading='eager'
+    />
+  </div>
+  <div class='hidden sm:block'>
+    <p class='text-sm font-bold leading-tight tracking-tight text-white'>CRUV</p>
+    <p class='text-[0.625rem] font-medium leading-tight text-white/50'>Universidad de Panamá</p>
+  </div>
+</a>

@@ -1,0 +1,215 @@
+import { useState, useEffect, useCallback } from "react";
+import { navItems, audienceLinks, type NavItem } from "../../lib/navigation";
+import MenuIcon from "../icons/MenuIcon";
+import CloseIcon from "../icons/CloseIcon";
+import ChevronDown from "../icons/ChevronDown";
+import SearchIcon from "../icons/SearchIcon";
+import ArrowRight from "../icons/ArrowRight";
+
+/* ---- Hoisted static styles ---- */
+
+const drawerStyle = {
+  background: "rgba(11, 49, 35, 0.95)",
+  backdropFilter: "blur(20px)",
+  WebkitBackdropFilter: "blur(20px)",
+  borderLeft: "1px solid rgba(212, 175, 55, 0.1)",
+} as const;
+
+export function MobileMenuButton({ transparent = false }: { transparent?: boolean }) {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggle = useCallback(() => setIsOpen((prev) => !prev), []);
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => { document.body.style.overflow = ""; };
+  }, [isOpen]);
+
+  useEffect(() => {
+    const handler = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setIsOpen(false);
+    };
+    document.addEventListener("keydown", handler);
+    return () => document.removeEventListener("keydown", handler);
+  }, []);
+
+  return (
+    <>
+      <button
+        onClick={toggle}
+        className="relative z-50 flex h-10 w-10 items-center justify-center rounded-lg text-white/80 transition-colors hover:bg-white/10 hover:text-white lg:hidden"
+        aria-label={isOpen ? "Cerrar menú" : "Abrir menú"}
+        aria-expanded={isOpen}
+      >
+        {isOpen
+          ? <CloseIcon className="h-5 w-5" />
+          : <MenuIcon className="h-5 w-5" />
+        }
+      </button>
+
+      {/* Backdrop */}
+      <div
+        className="fixed inset-0 z-40 bg-green-950/60 backdrop-blur-sm transition-opacity duration-300 lg:hidden"
+        style={{ opacity: isOpen ? 1 : 0, pointerEvents: isOpen ? "auto" : "none" }}
+        onClick={() => setIsOpen(false)}
+      />
+
+      {/* Drawer — dark glass theme */}
+      <div
+        className="fixed right-0 top-0 z-40 flex h-full w-full max-w-sm flex-col shadow-2xl transition-transform duration-300 ease-out lg:hidden"
+        style={{
+          ...drawerStyle,
+          transform: isOpen ? "translateX(0)" : "translateX(100%)",
+        }}
+      >
+        {/* Drawer header */}
+        <div className="flex items-center justify-between border-b border-white/10 px-5 py-4">
+          <span className="text-lg font-bold text-gold-400" style={{ fontFamily: "var(--font-heading)" }}>Menú</span>
+          <button
+            onClick={() => setIsOpen(false)}
+            className="flex h-9 w-9 items-center justify-center rounded-lg text-white/50 hover:bg-white/10 hover:text-white"
+            aria-label="Cerrar menú"
+          >
+            <CloseIcon className="h-5 w-5" />
+          </button>
+        </div>
+
+        {/* Scrollable content */}
+        <div className="flex-1 overflow-y-auto overscroll-contain">
+          {/* Audience buttons */}
+          <div className="border-b border-white/10 px-5 py-4">
+            <p className="mb-3 text-[0.6875rem] font-semibold uppercase tracking-[0.08em] text-white/30">
+              Soy...
+            </p>
+            <div className="flex gap-2">
+              {audienceLinks.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  className="flex-1 rounded-lg border border-white/10 py-2.5 text-center text-xs font-medium text-white/70 transition-all hover:border-gold-500/30 hover:bg-gold-500/10 hover:text-gold-400"
+                >
+                  {link.label}
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* Search */}
+          <div className="border-b border-white/10 px-5 py-4">
+            <div className="flex items-center gap-3 rounded-lg bg-white/5 px-4 py-2.5 border border-white/10">
+              <SearchIcon className="h-4 w-4 text-white/30" />
+              <input
+                type="text"
+                placeholder="Buscar en CRUV..."
+                className="w-full bg-transparent text-sm text-white placeholder:text-white/30 outline-none"
+              />
+            </div>
+          </div>
+
+          {/* Nav accordion */}
+          <nav className="px-5 py-3">
+            {navItems.map((item) => (
+              <AccordionItem key={item.label} item={item} onNavigate={() => setIsOpen(false)} />
+            ))}
+          </nav>
+        </div>
+
+        {/* Drawer footer */}
+        <div className="border-t border-white/10 bg-green-950/50 px-5 py-4">
+          <a
+            href="/contacto"
+            className="btn-gold block rounded-full py-3 text-center text-sm"
+          >
+            Contacto
+          </a>
+        </div>
+      </div>
+    </>
+  );
+}
+
+function AccordionItem({
+  item,
+  onNavigate,
+}: {
+  item: NavItem;
+  onNavigate: () => void;
+}) {
+  const [isOpen, setIsOpen] = useState(false);
+  const hasChildren = item.columns.length > 0 && item.columns.some((c) => c.links.length > 0);
+
+  if (!hasChildren) {
+    return (
+      <a
+        href={item.href}
+        onClick={onNavigate}
+        className="flex items-center py-3.5 text-[0.9375rem] font-medium text-white/80 transition-colors hover:text-gold-400"
+      >
+        {item.label}
+      </a>
+    );
+  }
+
+  return (
+    <div className="border-b border-white/5 last:border-b-0">
+      <button
+        onClick={() => setIsOpen((prev) => !prev)}
+        className="flex w-full items-center justify-between py-3.5 text-[0.9375rem] font-medium text-white/80 transition-colors hover:text-gold-400"
+        aria-expanded={isOpen}
+      >
+        {item.label}
+        <ChevronDown
+          className="h-4 w-4 text-white/30 transition-transform duration-200"
+          style={{ transform: isOpen ? "rotate(180deg)" : undefined }}
+        />
+      </button>
+
+      {/* Collapsible content */}
+      <div
+        className="grid transition-all duration-250 ease-out"
+        style={{
+          gridTemplateRows: isOpen ? "1fr" : "0fr",
+          paddingBottom: isOpen ? "0.75rem" : 0,
+          opacity: isOpen ? 1 : 0,
+        }}
+      >
+        <div className="overflow-hidden">
+          {item.columns.map((col, colIdx) => (
+            <div key={colIdx} className="mb-2 last:mb-0">
+              {col.heading && (
+                <p className="mb-1.5 pl-3 text-[0.625rem] font-semibold uppercase tracking-[0.1em] text-white/25">
+                  {col.heading}
+                </p>
+              )}
+              {col.links.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  onClick={onNavigate}
+                  className="flex items-center gap-2.5 rounded-md px-3 py-2 text-sm text-white/60 transition-colors hover:bg-white/5 hover:text-gold-400"
+                >
+                  <span className="h-1 w-1 rounded-full bg-white/20" />
+                  {link.label}
+                </a>
+              ))}
+            </div>
+          ))}
+
+          {/* "Ver todo" link */}
+          <a
+            href={item.href}
+            onClick={onNavigate}
+            className="mt-1 flex items-center gap-1.5 rounded-md px-3 py-2 text-sm font-medium text-gold-500 transition-colors hover:bg-gold-500/10 hover:text-gold-400"
+          >
+            Ver todo sobre {item.label}
+            <ArrowRight className="h-3 w-3" />
+          </a>
+        </div>
+      </div>
+    </div>
+  );
+}

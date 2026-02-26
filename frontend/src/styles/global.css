@@ -1,0 +1,331 @@
+@import "tailwindcss";
+
+/* ============================================
+   CRUV Design System — Premium Institutional Theme
+   Centro Regional Universitario de Veraguas
+   Universidad de Panamá
+   ============================================ */
+
+@theme {
+  /* ---- Primary: Deep Forest Green ---- */
+  --color-green-50: #edf8f3;
+  --color-green-100: #d0efdf;
+  --color-green-200: #a3dfbe;
+  --color-green-300: #6dca98;
+  --color-green-400: #3caf74;
+  --color-green-500: #269258;
+  --color-green-600: #1d7546;
+  --color-green-700: #155937;
+  --color-green-800: #0e3f2d;
+  --color-green-900: #0b3123;
+  --color-green-950: #052015;
+
+  /* ---- Accent: Rich Gold ---- */
+  --color-gold-50: #fdf8e8;
+  --color-gold-100: #faf0cc;
+  --color-gold-200: #f5df99;
+  --color-gold-300: #eecc66;
+  --color-gold-400: #e4bb44;
+  --color-gold-500: #d4af37;
+  --color-gold-600: #b8932a;
+  --color-gold-700: #947520;
+  --color-gold-800: #705818;
+  --color-gold-900: #4d3d12;
+  --color-gold-950: #2e250a;
+
+  /* ---- Institutional Blue ---- */
+  --color-blue-50: #EBF0FE;
+  --color-blue-100: #D0DDFB;
+  --color-blue-200: #A0BBF2;
+  --color-blue-300: #6B93E8;
+  --color-blue-400: #4070DD;
+  --color-blue-500: #2050CC;
+  --color-blue-600: #1A3FB3;
+  --color-blue-700: #153299;
+  --color-blue-800: #102882;
+  --color-blue-900: #0A1A52;
+  --color-blue-950: #081242;
+
+  /* ---- Neutrals (green-tinted) ---- */
+  --color-gray-50: #f3f6f5;
+  --color-gray-100: #e4eae8;
+  --color-gray-200: #c9d5d1;
+  --color-gray-300: #a9b8b2;
+  --color-gray-400: #869893;
+  --color-gray-500: #677976;
+  --color-gray-600: #52615d;
+  --color-gray-700: #3c4946;
+  --color-gray-800: #2a3331;
+  --color-gray-900: #1a2120;
+  --color-gray-950: #0e1514;
+
+  /* ---- Semantic ---- */
+  --color-success: #269258;
+  --color-warning: #d4af37;
+  --color-error: #DC2626;
+  --color-info: #4070DD;
+
+  /* ---- Surfaces (dark theme) ---- */
+  --color-surface: #0e3f2d;
+  --color-surface-light: #0b3123;
+
+  /* ---- Typography ---- */
+  --font-heading: "Playfair Display", Georgia, "Times New Roman", serif;
+  --font-body: "Montserrat", system-ui, -apple-system, sans-serif;
+
+  /* ---- Font sizes (modular scale 1.25) ---- */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.375rem;
+  --text-2xl: 1.75rem;
+  --text-3xl: 2.25rem;
+  --text-4xl: 3rem;
+  --text-5xl: 3.75rem;
+}
+
+/* ---- Base styles ---- */
+@layer base {
+  html {
+    font-family: var(--font-body);
+    color: #ffffff;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: radial-gradient(
+      ellipse at 50% 0%,
+      var(--color-green-800) 0%,
+      var(--color-green-900) 50%,
+      var(--color-green-950) 100%
+    );
+    background-attachment: fixed;
+  }
+
+  h1, h2, h3 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+  }
+
+  h4, h5, h6 {
+    font-family: var(--font-body);
+    font-weight: 700;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  ::selection {
+    background-color: var(--color-gold-500);
+    color: var(--color-green-950);
+  }
+}
+
+/* ---- Component styles ---- */
+@layer components {
+  /* Glassmorphism panel */
+  .glass {
+    background: rgba(11, 49, 35, 0.6);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(212, 175, 55, 0.12);
+  }
+
+  /* Glass card */
+  .glass-card {
+    background: rgba(14, 63, 45, 0.45);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(212, 175, 55, 0.1);
+    border-radius: 1rem;
+    transition: all 0.3s ease;
+  }
+
+  .glass-card:hover {
+    background: rgba(14, 63, 45, 0.6);
+    border-color: rgba(212, 175, 55, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Metallic gold button */
+  .btn-gold {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.625rem;
+    padding: 0.75rem 1.75rem;
+    border-radius: 9999px;
+    font-weight: 700;
+    font-size: 0.875rem;
+    background: linear-gradient(
+      135deg,
+      #b8932a 0%,
+      #d4af37 20%,
+      #f5df99 45%,
+      #d4af37 55%,
+      #e4bb44 80%,
+      #d4af37 100%
+    );
+    color: var(--color-green-950);
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);
+    box-shadow:
+      0 2px 12px rgba(212, 175, 55, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+  }
+
+  .btn-gold:hover {
+    background: linear-gradient(
+      135deg,
+      #d4af37 0%,
+      #e4bb44 20%,
+      #faf0cc 45%,
+      #e4bb44 55%,
+      #f5df99 80%,
+      #e4bb44 100%
+    );
+    box-shadow:
+      0 4px 24px rgba(212, 175, 55, 0.5),
+      inset 0 1px 0 rgba(255, 255, 255, 0.4),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+    transform: translateY(-1px);
+  }
+
+  /* Gold button with edge glow (for Oferta Académica) */
+  .btn-gold-glow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.625rem;
+    padding: 0.75rem 1.75rem;
+    border-radius: 9999px;
+    font-weight: 700;
+    font-size: 0.875rem;
+    background: linear-gradient(
+      135deg,
+      #b8932a 0%,
+      #d4af37 20%,
+      #f5df99 45%,
+      #d4af37 55%,
+      #e4bb44 80%,
+      #d4af37 100%
+    );
+    color: var(--color-green-950);
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);
+    box-shadow:
+      0 0 20px rgba(212, 175, 55, 0.4),
+      0 0 40px rgba(212, 175, 55, 0.15),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn-gold-glow::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -100%;
+    width: 60%;
+    height: 200%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.25),
+      transparent
+    );
+    transform: skewX(-20deg);
+    animation: shimmer 4s ease-in-out infinite;
+  }
+
+  .btn-gold-glow:hover {
+    box-shadow:
+      0 0 30px rgba(212, 175, 55, 0.6),
+      0 0 60px rgba(212, 175, 55, 0.25),
+      inset 0 1px 0 rgba(255, 255, 255, 0.4),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+    transform: translateY(-1px);
+  }
+
+  /* Ghost button (dark backgrounds) */
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.625rem;
+    padding: 0.75rem 1.75rem;
+    border-radius: 9999px;
+    font-weight: 600;
+    font-size: 0.875rem;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: #ffffff;
+    transition: all 0.3s ease;
+  }
+
+  .btn-ghost:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.45);
+    transform: translateY(-1px);
+  }
+
+  /* Light section — covers the dark canvas like paper on velvet */
+  .section-light {
+    background-color: #f3f6f5;
+    color: #1a2120;
+  }
+
+  /* Alternate light section — subtle mint */
+  .section-light-alt {
+    background-color: #edf8f3;
+    color: #1a2120;
+  }
+
+  /* Green section — institutional dark green */
+  .section-green {
+    background-color: #0b3123;
+    color: #ffffff;
+  }
+
+  /* Card for light backgrounds — shadow elevation instead of glass */
+  .light-card {
+    background-color: #ffffff;
+    border: 1px solid #e4eae8;
+    border-radius: 1rem;
+    box-shadow:
+      0 1px 3px rgba(11, 49, 35, 0.06),
+      0 4px 12px rgba(11, 49, 35, 0.08);
+    transition: all 0.3s ease;
+  }
+
+  .light-card:hover {
+    border-color: #d4af37;
+    box-shadow:
+      0 4px 16px rgba(11, 49, 35, 0.12),
+      0 0 0 1px rgba(212, 175, 55, 0.15);
+    transform: translateY(-2px);
+  }
+}
+
+/* ---- Animations ---- */
+@keyframes fadeSlideIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes shimmer {
+  0% { left: -100%; }
+  50%, 100% { left: 150%; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.7; }
+}

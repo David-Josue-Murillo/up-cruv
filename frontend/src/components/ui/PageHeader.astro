@@ -1,0 +1,41 @@
+---
+import Breadcrumb from "./Breadcrumb.astro";
+
+interface Props {
+  title: string;
+  description?: string;
+  pathname: string;
+  variant?: "default" | "hero";
+}
+
+const { title, description, pathname, variant = "default" } = Astro.props;
+---
+
+{variant === "hero" ? (
+  <div class="relative overflow-hidden border-b border-gold-500/10 bg-green-900/50">
+    <!-- Subtle bokeh accent -->
+    <div class="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full bg-gold-500/5 blur-[80px]" />
+
+    <div class="relative mx-auto max-w-7xl px-6 pb-12 pt-8">
+      <div class="mb-6">
+        <Breadcrumb pathname={pathname} />
+      </div>
+      <h1 class="font-heading text-3xl font-bold tracking-tight md:text-4xl">{title}</h1>
+      {description && (
+        <p class="mt-4 max-w-2xl text-lg text-white/70">{description}</p>
+      )}
+    </div>
+  </div>
+) : (
+  <div class="border-b border-gold-500/10 bg-green-900/30">
+    <div class="mx-auto max-w-7xl px-6 py-6">
+      <div class="mb-3">
+        <Breadcrumb pathname={pathname} />
+      </div>
+      <h1 class="font-heading text-2xl font-bold tracking-tight md:text-3xl">{title}</h1>
+      {description && (
+        <p class="mt-2 max-w-2xl text-white/60">{description}</p>
+      )}
+    </div>
+  </div>
+)}

@@ -1,0 +1,46 @@
+# openspec/config.yaml
+schema: spec-driven
+
+context: |
+  Tech stack: Astro 5.17 (SSG) + React 19 + Tailwind CSS v4 | Strapi 5.36 (CMS headless)
+  Architecture: Monorepo — frontend/ (Astro, ES modules, TS strict) + backend/ (Strapi, CJS, TS)
+  Patterns: Astro islands — .astro for static, .tsx with client:* for interactivity
+  Styling: Tailwind v4 via @tailwindcss/vite, design tokens in @theme (global.css)
+  Data: Navigation in frontend/src/lib/, CMS content via Strapi REST API
+  Testing: None configured
+  Linting: None configured
+  CI/CD: None configured
+  Language: Code identifiers in English, user-facing content in Spanish
+
+rules:
+  proposal:
+    - Include rollback plan for risky changes
+    - Identify affected modules (frontend/, backend/, or both)
+    - Note if change affects navigation data (src/lib/navigation.ts)
+  specs:
+    - Use Given/When/Then format for scenarios
+    - Use RFC 2119 keywords (MUST, SHALL, SHOULD, MAY)
+    - Specify viewport breakpoints when relevant (mobile 390px, tablet 768px, desktop 1440px)
+  design:
+    - Include sequence diagrams for complex flows
+    - Document architecture decisions with rationale
+    - Specify Astro (.astro) vs React (.tsx) for each new component with justification
+    - Reference Tailwind theme tokens (blue, green, gold, gray) — no arbitrary colors
+  tasks:
+    - Group tasks by phase (infrastructure, implementation, testing)
+    - Use hierarchical numbering (1.1, 1.2, etc.)
+    - Keep tasks small enough to complete in one session
+    - Specify target directory (frontend/ or backend/) per task
+  apply:
+    - Follow existing code patterns and conventions
+    - Use path aliases (@components/, @lib/, @layouts/, @styles/)
+    - Prefer Astro components; React only for client-side state/interactivity
+    - Dynamic Tailwind classes MUST use style props, not template literals (v4 extraction bug)
+    - Use astro:assets <Image /> for optimized images in src/assets/
+  verify:
+    - Run `npm run build` in frontend/ to verify no build errors
+    - Compare implementation against every spec scenario
+    - Check responsive behavior at mobile (390px) and desktop (1440px) viewpoints
+    - Verify accessibility: semantic HTML, ARIA attributes, keyboard navigation
+  archive:
+    - Warn before merging destructive deltas (large removals)

@@ -1,0 +1,48 @@
+{
+  "kind": "collectionType",
+  "collectionName": "resources",
+  "info": {
+    "singularName": "resource",
+    "pluralName": "resources",
+    "displayName": "resource"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "file": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "files"
+      ]
+    },
+    "category": {
+      "type": "enumeration",
+      "enum": [
+        "Estudiantes",
+        "Docentes",
+        "Administrativo",
+        "Transparencia"
+      ]
+    },
+    "audience": {
+      "type": "enumeration",
+      "enum": [
+        "Estudiantes",
+        "Docentes",
+        "Graduados",
+        "Público General"
+      ]
+    }
+  }
+}

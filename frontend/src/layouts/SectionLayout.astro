@@ -1,0 +1,22 @@
+---
+import Layout from "./Layout.astro";
+import PageHeader from "../components/ui/PageHeader.astro";
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+const pathname = Astro.url.pathname;
+---
+
+<Layout title={title} description={description}>
+  <PageHeader title={title} description={description} pathname={pathname} variant="hero" />
+  <div class="section-light relative">
+    <div class="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-gold-500/40 to-transparent" />
+    <main class="mx-auto max-w-7xl px-6 py-12">
+      <slot />
+    </main>
+  </div>
+</Layout>
