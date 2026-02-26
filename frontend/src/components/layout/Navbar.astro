@@ -13,25 +13,24 @@ const pathname = Astro.url.pathname;
 ---
 
 <header class={transparent ? "absolute top-0 left-0 right-0 z-50" : "sticky top-0 z-50"}>
-
   <!-- Glassmorphism navbar -->
-  <div class="glass">
-    <div class="mx-auto flex max-w-7xl items-center justify-between px-6">
+  <div class='glass'>
+    <div class='mx-auto flex max-w-7xl items-center justify-between px-6'>
       <NavbarLogo transparent={transparent} />
 
       <!-- Desktop mega-menu -->
-      <MegaMenu client:load currentPath={pathname} transparent={transparent} />
+      <MegaMenu client:load currentPath={pathname} />
 
       <!-- Right actions -->
-      <div class="hidden items-center gap-2 lg:flex">
+      <div class='hidden items-center gap-2 lg:flex'>
         <SearchButton transparent={transparent} />
       </div>
 
       <!-- Mobile menu button -->
-      <MobileMenuButton client:idle transparent={transparent} />
+      <MobileMenuButton client:idle />
     </div>
   </div>
 
   <!-- Gold accent stripe (bottom) -->
-  <div class="h-[2px] bg-linear-to-r from-transparent via-gold-500 to-transparent shadow-[0_0_12px_rgba(212,175,55,0.4)]" />
+  <div class='h-[2px] bg-linear-to-r from-transparent via-gold-500 to-transparent shadow-[0_0_12px_rgba(212,175,55,0.4)]'></div>
 </header>
