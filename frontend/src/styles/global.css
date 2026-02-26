@@ -122,6 +122,19 @@
     background-color: var(--color-gold-500);
     color: var(--color-green-950);
   }
+
+  /* Focus-visible — WCAG 2.1 AA (2.4.7 Focus Visible)
+     Gold ring visible on both dark and light backgrounds.
+     Only triggers on keyboard navigation, not mouse clicks. */
+  :focus-visible {
+    outline: 2px solid var(--color-gold-500);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.25);
+  }
+
+  :focus:not(:focus-visible) {
+    outline: none;
+  }
 }
 
 /* ---- Component styles ---- */
@@ -142,6 +155,11 @@
     border: 1px solid rgba(212, 175, 55, 0.1);
     border-radius: 1rem;
     transition: all 0.3s ease;
+  }
+
+  .glass-card:focus-visible {
+    outline-color: var(--color-gold-500);
+    border-color: rgba(212, 175, 55, 0.3);
   }
 
   .glass-card:hover {
@@ -175,6 +193,15 @@
       inset 0 1px 0 rgba(255, 255, 255, 0.3),
       inset 0 -1px 0 rgba(0, 0, 0, 0.15);
     transition: all 0.3s ease;
+  }
+
+  .btn-gold:focus-visible {
+    outline-color: var(--color-green-900);
+    box-shadow:
+      0 0 0 4px rgba(11, 49, 35, 0.4),
+      0 2px 12px rgba(212, 175, 55, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.15);
   }
 
   .btn-gold:hover {
@@ -241,6 +268,16 @@
     animation: shimmer 4s ease-in-out infinite;
   }
 
+  .btn-gold-glow:focus-visible {
+    outline-color: var(--color-green-900);
+    box-shadow:
+      0 0 0 4px rgba(11, 49, 35, 0.4),
+      0 0 20px rgba(212, 175, 55, 0.4),
+      0 0 40px rgba(212, 175, 55, 0.15),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+  }
+
   .btn-gold-glow:hover {
     box-shadow:
       0 0 30px rgba(212, 175, 55, 0.6),
@@ -263,6 +300,11 @@
     border: 1px solid rgba(255, 255, 255, 0.25);
     color: #ffffff;
     transition: all 0.3s ease;
+  }
+
+  .btn-ghost:focus-visible {
+    outline-color: var(--color-gold-500);
+    border-color: var(--color-gold-500);
   }
 
   .btn-ghost:hover {
@@ -298,6 +340,11 @@
       0 1px 3px rgba(11, 49, 35, 0.06),
       0 4px 12px rgba(11, 49, 35, 0.08);
     transition: all 0.3s ease;
+  }
+
+  .light-card:focus-visible {
+    outline-color: var(--color-gold-600);
+    border-color: var(--color-gold-500);
   }
 
   .light-card:hover {
