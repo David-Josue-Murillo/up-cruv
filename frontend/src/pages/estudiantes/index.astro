@@ -1,0 +1,16 @@
+---
+import { sectionMeta } from "@/lib/navigation";
+import SectionLayout from "@/layouts/SectionLayout.astro";
+
+const meta = sectionMeta["estudiantes"];
+---
+
+
+<SectionLayout title={meta.title} description={meta.description}>
+  <h2>Servicios para estudiantes</h2>
+  <p>
+    En esta sección encontrarás accesos a horarios, trámites, calendario académico, becas y otros recursos de apoyo
+    para estudiantes del CRUV.
+  </p>
+</SectionLayout>
+

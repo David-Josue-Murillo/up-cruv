@@ -122,6 +122,19 @@
     background-color: var(--color-gold-500);
     color: var(--color-green-950);
   }
+
+  /* Focus-visible — WCAG 2.1 AA (2.4.7 Focus Visible)
+     Gold ring visible on both dark and light backgrounds.
+     Only triggers on keyboard navigation, not mouse clicks. */
+  :focus-visible {
+    outline: 2px solid var(--color-gold-500);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.25);
+  }
+
+  :focus:not(:focus-visible) {
+    outline: none;
+  }
 }
 
 /* ---- Component styles ---- */
@@ -144,6 +157,11 @@
     transition: all 0.3s ease;
   }
 
+  .glass-card:focus-visible {
+    outline-color: var(--color-gold-500);
+    border-color: rgba(212, 175, 55, 0.3);
+  }
+
   .glass-card:hover {
     background: rgba(14, 63, 45, 0.6);
     border-color: rgba(212, 175, 55, 0.2);
@@ -161,12 +179,12 @@
     font-size: 0.875rem;
     background: linear-gradient(
       135deg,
-      #b8932a 0%,
-      #d4af37 20%,
-      #f5df99 45%,
-      #d4af37 55%,
-      #e4bb44 80%,
-      #d4af37 100%
+      var(--color-gold-600) 0%,
+      var(--color-gold-500) 20%,
+      var(--color-gold-200) 45%,
+      var(--color-gold-500) 55%,
+      var(--color-gold-400) 80%,
+      var(--color-gold-500) 100%
     );
     color: var(--color-green-950);
     text-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);
@@ -177,15 +195,24 @@
     transition: all 0.3s ease;
   }
 
+  .btn-gold:focus-visible {
+    outline-color: var(--color-green-900);
+    box-shadow:
+      0 0 0 4px rgba(11, 49, 35, 0.4),
+      0 2px 12px rgba(212, 175, 55, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+  }
+
   .btn-gold:hover {
     background: linear-gradient(
       135deg,
-      #d4af37 0%,
-      #e4bb44 20%,
-      #faf0cc 45%,
-      #e4bb44 55%,
-      #f5df99 80%,
-      #e4bb44 100%
+      var(--color-gold-500) 0%,
+      var(--color-gold-400) 20%,
+      var(--color-gold-100) 45%,
+      var(--color-gold-400) 55%,
+      var(--color-gold-200) 80%,
+      var(--color-gold-400) 100%
     );
     box-shadow:
       0 4px 24px rgba(212, 175, 55, 0.5),
@@ -205,12 +232,12 @@
     font-size: 0.875rem;
     background: linear-gradient(
       135deg,
-      #b8932a 0%,
-      #d4af37 20%,
-      #f5df99 45%,
-      #d4af37 55%,
-      #e4bb44 80%,
-      #d4af37 100%
+      var(--color-gold-600) 0%,
+      var(--color-gold-500) 20%,
+      var(--color-gold-200) 45%,
+      var(--color-gold-500) 55%,
+      var(--color-gold-400) 80%,
+      var(--color-gold-500) 100%
     );
     color: var(--color-green-950);
     text-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);
@@ -241,6 +268,16 @@
     animation: shimmer 4s ease-in-out infinite;
   }
 
+  .btn-gold-glow:focus-visible {
+    outline-color: var(--color-green-900);
+    box-shadow:
+      0 0 0 4px rgba(11, 49, 35, 0.4),
+      0 0 20px rgba(212, 175, 55, 0.4),
+      0 0 40px rgba(212, 175, 55, 0.15),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+  }
+
   .btn-gold-glow:hover {
     box-shadow:
       0 0 30px rgba(212, 175, 55, 0.6),
@@ -265,6 +302,11 @@
     transition: all 0.3s ease;
   }
 
+  .btn-ghost:focus-visible {
+    outline-color: var(--color-gold-500);
+    border-color: var(--color-gold-500);
+  }
+
   .btn-ghost:hover {
     background: rgba(255, 255, 255, 0.08);
     border-color: rgba(255, 255, 255, 0.45);
@@ -273,26 +315,26 @@
 
   /* Light section — covers the dark canvas like paper on velvet */
   .section-light {
-    background-color: #f3f6f5;
-    color: #1a2120;
+    background-color: var(--color-gray-50);
+    color: var(--color-gray-900);
   }
 
   /* Alternate light section — subtle mint */
   .section-light-alt {
-    background-color: #edf8f3;
-    color: #1a2120;
+    background-color: var(--color-green-50);
+    color: var(--color-gray-900);
   }
 
   /* Green section — institutional dark green */
   .section-green {
-    background-color: #0b3123;
+    background-color: var(--color-green-900);
     color: #ffffff;
   }
 
   /* Card for light backgrounds — shadow elevation instead of glass */
   .light-card {
     background-color: #ffffff;
-    border: 1px solid #e4eae8;
+    border: 1px solid var(--color-gray-100);
     border-radius: 1rem;
     box-shadow:
       0 1px 3px rgba(11, 49, 35, 0.06),
@@ -300,12 +342,118 @@
     transition: all 0.3s ease;
   }
 
+  .light-card:focus-visible {
+    outline-color: var(--color-gold-600);
+    border-color: var(--color-gold-500);
+  }
+
   .light-card:hover {
-    border-color: #d4af37;
+    border-color: var(--color-gold-500);
     box-shadow:
       0 4px 16px rgba(11, 49, 35, 0.12),
       0 0 0 1px rgba(212, 175, 55, 0.15);
     transform: translateY(-2px);
+  }
+
+  /* Card variants — standard navigation card and featured profile card */
+  .card-standard {
+    padding: 1.5rem; /* ~p-6 */
+  }
+
+  .card-featured {
+    padding: 1.75rem; /* slightly larger than standard without feeling oversized */
+  }
+
+  /* Icon container for cards */
+  .card-icon {
+    margin-bottom: 0.75rem; /* ~mb-3 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.75rem;
+    height: 2.75rem; /* intermedio entre h-10 y h-12 */
+    border-radius: 0.75rem;
+  }
+
+  /* Approved icon background tokens */
+  .card-icon--gold {
+    background-color: var(--color-gold-100);
+    color: var(--color-gold-600);
+  }
+
+  .card-icon--green {
+    background-color: rgba(14, 63, 45, 0.08); /* similar a bg-green-800/10 */
+    color: var(--color-green-800);
+  }
+
+  .card-standard .card-icon svg,
+  .card-featured .card-icon svg {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  /* Featured cards: slightly larger circular icon */
+  .card-featured .card-icon {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 9999px;
+  }
+
+  /* Prose typography (light content panels) */
+  .prose h2 {
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-gold-700);
+  }
+  .prose h3 {
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-green-900);
+  }
+  .prose p {
+    margin-bottom: 1rem;
+    line-height: 1.85;
+    color: var(--color-gray-700);
+  }
+  .prose ul, .prose ol {
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+    color: var(--color-gray-700);
+  }
+  .prose li {
+    margin-bottom: 0.25rem;
+    line-height: 1.85;
+  }
+  .prose ul {
+    list-style-type: disc;
+  }
+  .prose ol {
+    list-style-type: decimal;
+  }
+  .prose li::marker {
+    color: var(--color-gold-600);
+  }
+  .prose strong {
+    font-weight: 700;
+    color: var(--color-gray-900);
+  }
+  .prose blockquote {
+    margin: 1.5rem 0;
+    border-left: 4px solid var(--color-gold-600);
+    padding: 0.75rem 1.25rem;
+    background-color: rgba(212, 175, 55, 0.08);
+    color: var(--color-gray-700);
+    border-radius: 0 0.75rem 0.75rem 0;
+    font-style: italic;
+  }
+  .prose img {
+    margin: 1.5rem 0;
+    border-radius: 0.75rem;
+    max-width: 100%;
   }
 }
 

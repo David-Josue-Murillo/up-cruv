@@ -1,4 +1,33 @@
-# Proyecto
+Actúa como UI System Architect.
+
+OBJETIVO:
+Formalizar un patrón oficial de cards y eliminar divergencias visuales inconsistentes.
+
+ALCANCE:
+- Homepage audience cards
+- Section cards
+- Autoridades cards
+
+RESTRICCIONES:
+- No rediseñar visualmente.
+- Solo unificar reglas.
+- No modificar contenido textual.
+
+INSTRUCCIONES:
+1. Define variantes oficiales:
+   - Standard
+   - Featured
+2. Estandariza:
+   - Tamaño de icono
+   - Padding
+   - Background del icono
+   - Hover states
+3. Minimiza impacto visual.
+
+FORMATO:
+- Definición de variantes.
+- Archivos modificados.
+- Código final.# Proyecto
 
 Sitio web del Centro Regional Universitario de Veraguas (CRUV) — Universidad de Panamá. Monorepo con frontend estático (Astro) y CMS headless (Strapi). El frontend consume contenido del backend vía API REST.
 
@@ -68,6 +97,41 @@ La estructura de navegación se define como datos tipados en `frontend/src/lib/n
 - `navItems` — 6 secciones: Nosotros, Oferta Académica, Admisión, Investigación, Extensión, Noticias
 
 # Convenciones de Código
+
+## Commits
+- **Idioma:** inglés.
+- **Formato:** [Conventional Commits](https://www.conventionalcommits.org/) — `tipo(alcance): descripción`.
+- **Tipos permitidos:** `feat`, `fix`, `refactor`, `style`, `docs`, `chore`, `test`, `perf`, `ci`, `build`.
+- **Alcance (scope):** `frontend`, `backend`, o subdirectorio relevante (ej: `frontend/nav`, `backend/api`). Omitir si el cambio es transversal.
+- **Descripción:** imperativo, minúscula, sin punto final, máximo ~72 caracteres.
+- **Body (opcional):** lista con `-` explicando los cambios principales. Separar del título con una línea en blanco.
+- **Breaking changes:** agregar `!` después del tipo/scope (ej: `feat(frontend)!: ...`) y documentar en el body con `BREAKING CHANGE:`.
+- **No commitear:** archivos `.env`, `node_modules/`, `*.lock`, carpetas auto-generadas (`.astro/`, `.strapi/`, `types/generated/`).
+- Preferir commits atómicos: un commit por cambio lógico. Evitar commits gigantes que mezclen features, fixes y refactors.
+
+### Ejemplos
+```
+feat(frontend): add hero section to homepage
+
+- Background image with dark overlay and radial gradient
+- Floating bokeh orbs with CSS animations
+- Dual CTA buttons: Oferta Académica and Admisión
+```
+
+```
+fix(backend): correct pagination default in article endpoint
+```
+
+```
+refactor(frontend): extract shared hooks from navigation components
+
+- useEscapeKey, useBodyScrollLock, useClickOutside to lib/hooks/
+- Split NavItemButton and AccordionItem into own files
+```
+
+```
+chore: update dependencies to latest patch versions
+```
 
 ## Estilo
 - TypeScript strict en frontend; TypeScript estándar en backend.

@@ -2,6 +2,7 @@
 import "../styles/global.css";
 import Navbar from "../components/layout/Navbar.astro";
 import Footer from "../components/layout/Footer.astro";
+import { ClientRouter } from "astro:transitions";
 
 interface Props {
   title: string;
@@ -21,35 +22,36 @@ const siteTitle = `${title} | CRUV — Universidad de Panamá`;
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang='es'>
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content={description} />
-    <meta name="generator" content={Astro.generator} />
+    <meta charset='utf-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1' />
+    <meta name='description' content={description} />
+    <meta name='generator' content={Astro.generator} />
 
     <!-- Open Graph -->
-    <meta property="og:title" content={siteTitle} />
-    <meta property="og:description" content={description} />
-    <meta property="og:image" content={ogImage} />
-    <meta property="og:type" content="website" />
-    <meta property="og:locale" content="es_PA" />
+    <meta property='og:title' content={siteTitle} />
+    <meta property='og:description' content={description} />
+    <meta property='og:image' content={ogImage} />
+    <meta property='og:type' content='website' />
+    <meta property='og:locale' content='es_PA' />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" href="/favicon.ico" />
+    <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
+    <link rel='icon' href='/favicon.ico' />
 
     <!-- Fonts: Playfair Display (headings) + Montserrat (body) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel='preconnect' href='https://fonts.googleapis.com' />
+    <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&display=swap"
-      rel="stylesheet"
+      href='https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&display=swap'
+      rel='stylesheet'
     />
 
     <title>{siteTitle}</title>
+    <ClientRouter />
   </head>
-  <body class="min-h-screen antialiased">
+  <body class='min-h-screen antialiased'>
     <Navbar transparent={navbarTransparent} />
     <slot />
     <Footer />

@@ -1,0 +1,12 @@
+---
+import { sectionMeta } from "../../lib/navigation";
+import SectionLayout from "@/layouts/SectionLayout.astro";
+
+const meta = sectionMeta["docentes"];
+---
+
+<SectionLayout title={meta.title} description={meta.description}>
+  <div class=""> 
+    <h1>Docentes</h1>
+  </div>
+</SectionLayout>
