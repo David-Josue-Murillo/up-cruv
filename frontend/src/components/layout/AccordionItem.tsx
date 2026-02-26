@@ -52,7 +52,7 @@ export default function AccordionItem({
           {item.columns.map((col, colIdx) => (
             <div key={colIdx} className="mb-2 last:mb-0">
               {col.heading && (
-                <p className="mb-1.5 pl-3 text-[0.625rem] font-semibold uppercase tracking-[0.1em] text-white/25">
+                <p className="mb-1.5 pl-3 text-[0.625rem] font-semibold uppercase tracking-widest text-white/25">
                   {col.heading}
                 </p>
               )}
