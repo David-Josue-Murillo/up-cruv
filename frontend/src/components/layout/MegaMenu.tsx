@@ -1,30 +1,17 @@
-import { useState, useRef, useCallback } from "react";
-import { navItems } from "../../lib/navigation";
-import { useEscapeKey } from "../../lib/hooks/useEscapeKey";
-import { useClickOutside } from "../../lib/hooks/useClickOutside";
 import NavItemButton from "./NavItemButton";
+import { navItems } from "../../lib/navigation";
+import { useMegaMenu } from "@/lib/hooks/useMegaMenu";
 
-export default function MegaMenu({ currentPath = "/" }: { currentPath?: string }) {
-  const [activeIndex, setActiveIndex] = useState<number | null>(null);
-  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const navRef = useRef<HTMLElement>(null);
+interface Props {
+  currentPath?: string;
+}
 
-  const open = useCallback((index: number) => {
-    if (timeoutRef.current) clearTimeout(timeoutRef.current);
-    setActiveIndex(index);
-  }, []);
-
-  const close = useCallback(() => {
-    timeoutRef.current = setTimeout(() => setActiveIndex(null), 150);
-  }, []);
-
-  const clearActive = useCallback(() => setActiveIndex(null), []);
-  useEscapeKey(clearActive);
-  useClickOutside(navRef, clearActive);
+export default function MegaMenu({ currentPath = "/" }: Props) {
+  const { activeIndex, navRef, open, close } = useMegaMenu();
 
   return (
-    <nav ref={navRef} className="hidden lg:block">
-      <ul className="flex items-center gap-1">
+    <nav ref={navRef} className='hidden lg:block'>
+      <ul className='flex items-center gap-1'>
         {navItems.map((item, index) => (
           <NavItemButton
             key={item.label}
