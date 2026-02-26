@@ -34,7 +34,7 @@ export default function AccordionItem({
       >
         {item.label}
         <ChevronDown
-          className="h-4 w-4 text-white/30 transition-transform duration-200"
+          className="h-4 w-4 text-white/50 transition-transform duration-200"
           style={{ transform: isOpen ? "rotate(180deg)" : undefined }}
         />
       </button>
@@ -52,7 +52,7 @@ export default function AccordionItem({
           {item.columns.map((col, colIdx) => (
             <div key={colIdx} className="mb-2 last:mb-0">
               {col.heading && (
-                <p className="mb-1.5 pl-3 text-[0.625rem] font-semibold uppercase tracking-widest text-white/25">
+                <p className="mb-1.5 pl-3 text-[0.625rem] font-semibold uppercase tracking-widest text-white/50">
                   {col.heading}
                 </p>
               )}

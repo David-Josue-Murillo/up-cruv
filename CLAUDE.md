@@ -1,4 +1,33 @@
-# Proyecto
+Actúa como UI System Architect.
+
+OBJETIVO:
+Formalizar un patrón oficial de cards y eliminar divergencias visuales inconsistentes.
+
+ALCANCE:
+- Homepage audience cards
+- Section cards
+- Autoridades cards
+
+RESTRICCIONES:
+- No rediseñar visualmente.
+- Solo unificar reglas.
+- No modificar contenido textual.
+
+INSTRUCCIONES:
+1. Define variantes oficiales:
+   - Standard
+   - Featured
+2. Estandariza:
+   - Tamaño de icono
+   - Padding
+   - Background del icono
+   - Hover states
+3. Minimiza impacto visual.
+
+FORMATO:
+- Definición de variantes.
+- Archivos modificados.
+- Código final.# Proyecto
 
 Sitio web del Centro Regional Universitario de Veraguas (CRUV) — Universidad de Panamá. Monorepo con frontend estático (Astro) y CMS headless (Strapi). El frontend consume contenido del backend vía API REST.
 

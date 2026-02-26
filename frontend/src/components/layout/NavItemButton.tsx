@@ -62,7 +62,7 @@ const NavItemButton = memo(function NavItemButton({
         {item.label}
         {hasDropdown ? (
           <ChevronDown
-            className="h-3.5 w-3.5 transition-transform duration-200 text-white/40 group-hover:text-white/70"
+            className="h-3.5 w-3.5 transition-transform duration-200 text-white/50 group-hover:text-white/70"
             style={{
               transform: isActive ? "rotate(180deg)" : undefined,
               color: isActive ? "var(--color-gold-400)" : undefined,
@@ -118,7 +118,7 @@ const NavItemButton = memo(function NavItemButton({
                 {item.columns.map((col, colIdx) => (
                   <div key={colIdx}>
                     {col.heading && (
-                      <p className="mb-2.5 text-[0.6875rem] font-semibold uppercase tracking-[0.08em] text-white/30">
+                      <p className="mb-2.5 text-[0.6875rem] font-semibold uppercase tracking-[0.08em] text-white/50">
                         {col.heading}
                       </p>
                     )}

@@ -355,6 +355,50 @@
     transform: translateY(-2px);
   }
 
+  /* Card variants — standard navigation card and featured profile card */
+  .card-standard {
+    padding: 1.5rem; /* ~p-6 */
+  }
+
+  .card-featured {
+    padding: 1.75rem; /* slightly larger than standard without feeling oversized */
+  }
+
+  /* Icon container for cards */
+  .card-icon {
+    margin-bottom: 0.75rem; /* ~mb-3 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.75rem;
+    height: 2.75rem; /* intermedio entre h-10 y h-12 */
+    border-radius: 0.75rem;
+  }
+
+  /* Approved icon background tokens */
+  .card-icon--gold {
+    background-color: var(--color-gold-100);
+    color: var(--color-gold-600);
+  }
+
+  .card-icon--green {
+    background-color: rgba(14, 63, 45, 0.08); /* similar a bg-green-800/10 */
+    color: var(--color-green-800);
+  }
+
+  .card-standard .card-icon svg,
+  .card-featured .card-icon svg {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  /* Featured cards: slightly larger circular icon */
+  .card-featured .card-icon {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 9999px;
+  }
+
   /* Prose typography (light content panels) */
   .prose h2 {
     margin-top: 2rem;

@@ -70,7 +70,7 @@ export function MobileMenuButton() {
         <div className="flex-1 overflow-y-auto overscroll-contain">
           {/* Audience buttons */}
           <div className="border-b border-white/10 px-5 py-4">
-            <p className="mb-3 text-[0.6875rem] font-semibold uppercase tracking-[0.08em] text-white/30">
+            <p className="mb-3 text-[0.6875rem] font-semibold uppercase tracking-[0.08em] text-white/50">
               Soy...
             </p>
             <div className="flex gap-2">
@@ -89,11 +89,11 @@ export function MobileMenuButton() {
           {/* Search */}
           <div className="border-b border-white/10 px-5 py-4">
             <div className="flex items-center gap-3 rounded-lg bg-white/5 px-4 py-2.5 border border-white/10">
-              <SearchIcon className="h-4 w-4 text-white/30" />
+              <SearchIcon className="h-4 w-4 text-white/50" />
               <input
                 type="text"
                 placeholder="Buscar en CRUV..."
-                className="w-full bg-transparent text-sm text-white placeholder:text-white/30 outline-none"
+                className="w-full bg-transparent text-sm text-white placeholder:text-white/50 outline-none"
               />
             </div>
           </div>
