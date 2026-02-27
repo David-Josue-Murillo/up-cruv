@@ -23,7 +23,7 @@ export function MobileMenuButton() {
     <>
       <button
         onClick={toggle}
-        className='relative z-50 flex h-10 w-10 items-center justify-center rounded-lg text-white/80 transition-colors hover:bg-white/10 hover:text-white lg:hidden'
+        className='relative z-50 flex h-10 w-10 items-center justify-center rounded-lg text-white/80 transition-colors hover:bg-white/10 hover:text-white'
         aria-label={isOpen ? "Cerrar menú" : "Abrir menú"}
         aria-expanded={isOpen}
       >
@@ -32,14 +32,14 @@ export function MobileMenuButton() {
 
       {/* Backdrop */}
       <div
-        className='fixed inset-0 z-40 bg-green-950/60 backdrop-blur-sm transition-opacity duration-300 lg:hidden'
+        className='fixed inset-0 z-100 bg-green-950/80 backdrop-blur-md transition-opacity duration-300 lg:hidden'
         style={{ opacity: isOpen ? 1 : 0, pointerEvents: isOpen ? "auto" : "none" }}
         onClick={() => setIsOpen(false)}
       />
 
       {/* Drawer — dark glass theme */}
       <div
-        className='fixed right-0 top-0 z-40 flex h-full w-full max-w-sm flex-col shadow-2xl transition-transform duration-300 ease-out lg:hidden'
+        className='fixed right-0 top-0 z-110 flex h-full w-[280px] sm:w-[320px] flex-col shadow-2xl transition-transform duration-300 ease-out lg:hidden'
         style={{
           ...drawerStyle,
           transform: isOpen ? "translateX(0)" : "translateX(100%)",

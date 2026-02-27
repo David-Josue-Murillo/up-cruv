@@ -16,8 +16,8 @@ const CareerSearch: React.FC = () => {
   return (
     <div className="w-full">
       {/* Filters Section */}
-      <div className="mb-12 flex flex-col gap-6 md:flex-row md:items-end justify-center">
-        <div className="flex flex-col gap-2 min-w-[200px]">
+      <div className="mb-12 flex flex-col gap-6 md:flex-row md:items-end justify-center px-4">
+        <div className="flex flex-col gap-2 w-full md:w-64">
           <label htmlFor="level-filter" className="text-sm font-semibold text-gold-200 ml-1">
             Nivel Académico
           </label>
@@ -25,18 +25,18 @@ const CareerSearch: React.FC = () => {
             id="level-filter"
             value={selectedLevel}
             onChange={(e) => setSelectedLevel(e.target.value)}
-            className="w-full rounded-xl border border-white/10 bg-green-900/40 p-3 text-sm text-white shadow-lg backdrop-blur-md transition-all focus:border-gold-400/50 focus:ring-2 focus:ring-gold-400/20"
+            className="w-full rounded-xl border border-white/10 bg-green-900/40 p-3.5 text-sm text-white shadow-lg backdrop-blur-md transition-all focus:border-gold-400/50 focus:ring-2 focus:ring-gold-400/20"
           >
-            <option value="" className="bg-green-950 text-white">Todos los niveles</option>
+            <option value="" className="bg-green-950 text-white font-medium">Todos los niveles</option>
             {levels.map((level) => (
-              <option key={level} value={level} className="bg-green-950 text-white">
+              <option key={level} value={level} className="bg-green-950 text-white font-medium">
                 {level}
               </option>
             ))}
           </select>
         </div>
 
-        <div className="flex flex-col gap-2 min-w-[00px]">
+        <div className="flex flex-col gap-2 w-full md:w-80">
           <label htmlFor="faculty-filter" className="text-sm font-semibold text-gold-200 ml-1">
             Facultad
           </label>
@@ -44,11 +44,11 @@ const CareerSearch: React.FC = () => {
             id="faculty-filter"
             value={selectedFaculty}
             onChange={(e) => setSelectedFaculty(e.target.value)}
-            className="w-full rounded-xl border border-white/10 bg-green-900/40 p-3 text-sm text-white shadow-lg backdrop-blur-md transition-all focus:border-gold-400/50 focus:ring-2 focus:ring-gold-400/20"
+            className="w-full rounded-xl border border-white/10 bg-green-900/40 p-3.5 text-sm text-white shadow-lg backdrop-blur-md transition-all focus:border-gold-400/50 focus:ring-2 focus:ring-gold-400/20"
           >
-            <option value="" className="bg-green-950 text-white">Todas las facultades</option>
+            <option value="" className="bg-green-950 text-white font-medium">Todas las facultades</option>
             {faculties.map((faculty) => (
-              <option key={faculty} value={faculty} className="bg-green-950 text-white">
+              <option key={faculty} value={faculty} className="bg-green-950 text-white font-medium">
                 {faculty}
               </option>
             ))}
@@ -62,7 +62,7 @@ const CareerSearch: React.FC = () => {
               setSelectedLevel('');
               setSelectedFaculty('');
             }}
-            className="text-sm font-medium text-gold-400 hover:text-gold-300 transition-colors pb-3"
+            className="text-sm font-bold text-gold-400 hover:text-gold-300 transition-colors py-2 md:pb-4 md:pt-0"
           >
             Limpiar filtros
           </button>
@@ -70,12 +70,12 @@ const CareerSearch: React.FC = () => {
       </div>
 
       {/* Results Section */}
-      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 px-4 sm:px-0">
         {filteredCareers.length > 0 ? (
-          filteredCareers.map((career) => (
+          filteredCareers.map((career, index) => (
             <div
               key={career.id}
-              className="group relative flex flex-col overflow-hidden rounded-3xl border border-white/10 bg-white p-6 shadow-2xl transition-all duration-700 hover:-translate-y-4 hover:shadow-[0_40px_80px_-15px_rgba(0,0,0,0.3)]"
+              className={`group relative flex flex-col overflow-hidden rounded-3xl border border-white/10 bg-white p-7 sm:p-8 shadow-2xl transition-all duration-700 hover:-translate-y-4 hover:shadow-[0_40px_80px_-15px_rgba(0,0,0,0.3)] ${index >= 3 ? 'hidden sm:flex' : 'flex'}`}
             >
               <div className="absolute top-0 right-0 p-4">
                 <span className="inline-block rounded-full bg-green-50 px-4 py-1.5 text-[10px] font-bold uppercase tracking-wider text-green-700 border border-green-100">
@@ -87,7 +87,7 @@ const CareerSearch: React.FC = () => {
                 {career.faculty}
               </div>
 
-              <h3 className="mb-4 font-heading text-xl font-bold text-gray-900 transition-colors group-hover:text-green-800">
+              <h3 className="mb-4 font-heading text-xl font-bold text-gray-900 leading-snug transition-colors group-hover:text-green-800">
                 {career.name}
               </h3>
 
@@ -102,10 +102,10 @@ const CareerSearch: React.FC = () => {
                 {career.graduateProfile}
               </p>
 
-              <div className="mt-8">
+              <div className="mt-10">
                 <a
                   href={`/oferta-academica/${career.id}`}
-                  className="group/link flex items-center justify-between w-full rounded-2xl bg-gold-400 px-6 py-4 text-sm font-bold text-green-950 transition-all duration-300 hover:bg-gold-500 hover:shadow-lg hover:shadow-gold-500/30"
+                  className="group/link flex items-center justify-between w-full rounded-2xl bg-gold-400 px-6 py-4.5 text-sm font-bold text-green-950 transition-all duration-300 hover:bg-gold-500 hover:shadow-lg hover:shadow-gold-500/30"
                 >
                   <span className="flex items-center gap-2">
                     Ver plan de estudio
