@@ -4,6 +4,8 @@ import { Image } from "astro:assets";
 import logoImg from "@/assets/images/logo.webp";
 import anniversaryImg from "@/assets/images/90_year.png";
 import heroBg from "@/assets/images/hero-bg.jpg";
+import Carousel from "@/components/ui/Carousel";
+import { banners } from "@/lib/navigation/banners";
 ---
 
 <Layout title='Inicio' navbarTransparent>
@@ -101,6 +103,11 @@ import heroBg from "@/assets/images/hero-bg.jpg";
         </div>
       </div>
     </section>
+
+    <!-- Carousel de Noticias y Eventos -->
+     <section class="section-light">
+       <Carousel banners={banners} client:idle />
+     </section>
 
     <!-- Audience Quick Access — light -->
     <section class='section-light relative py-20'>
