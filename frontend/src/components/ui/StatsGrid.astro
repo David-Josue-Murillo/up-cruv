@@ -1,0 +1,71 @@
+---
+import { Image } from "astro:assets";
+import StatsItem from "./StatsItem.astro";
+
+// Import icons from assets
+import iconCarreras from "@/assets/images/iconCarreras.webp";
+import iconProfesores from "@/assets/images/iconProfesores.webp";
+import iconEstudiantes from "@/assets/images/iconEstudiantes.webp";
+import iconFacultades from "@/assets/images/iconFacultades.webp";
+import iconRegiones from "@/assets/images/iconRegiones.webp";
+import iconGraduados from "@/assets/images/iconGraduados.webp";
+
+const stats = [
+  {
+    number: "349",
+    label: "Carreras",
+    sublabel: "188 Pregrado | 161 Postgrados",
+    icon: iconCarreras,
+  },
+  {
+    number: "19",
+    label: "Facultades",
+    sublabel: "Centros de especialización académica",
+    icon: iconFacultades,
+  },
+  {
+    number: "10",
+    label: "Centros Regionales",
+    sublabel: "Universitarios a nivel nacional",
+    icon: iconRegiones,
+  },
+  {
+    number: "287,729",
+    label: "Graduados",
+    sublabel: "Trayectoria histórica (1939-2023)",
+    icon: iconGraduados,
+  },
+  {
+    number: "83,595",
+    label: "Estudiantes",
+    sublabel: "Pregrado (Actualizado a Julio 2024)",
+    icon: iconEstudiantes,
+  },
+  {
+    number: "4,731",
+    label: "Profesores",
+    sublabel: "Docencia e investigación (Diciembre 2023)",
+    icon: iconProfesores,
+  },
+];
+---
+
+<div class="grid grid-cols-1 gap-12 sm:grid-cols-3 sm:gap-16 lg:gap-4">
+  {
+    stats.map((stat) => (
+      <StatsItem
+        number={stat.number}
+        label={stat.label}
+        sublabel={stat.sublabel}
+      >
+        <div slot="icon" class="flex h-full w-full items-center justify-center">
+          <Image
+            src={stat.icon}
+            alt={stat.label}
+            class="h-auto w-full max-w-[40px] object-contain opacity-80 transition-all duration-300 group-hover:opacity-100 group-hover:scale-110"
+          />
+        </div>
+      </StatsItem>
+    ))
+  }
+</div>

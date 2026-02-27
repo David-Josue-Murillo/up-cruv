@@ -6,6 +6,7 @@ import anniversaryImg from "@/assets/images/90_year.png";
 import heroBg from "@/assets/images/hero-bg.jpg";
 import Carousel from "@/components/ui/Carousel";
 import QuickAccess from "@/components/ui/QuickAccess.astro";
+import StatsGrid from "@/components/ui/StatsGrid.astro";
 import CareerSearch from "@/components/ui/CareerSearch";
 import { banners } from "@/lib/navigation/banners";
 import { news } from "@/lib/data/news";
@@ -140,20 +141,87 @@ import EventsWidget from "@/components/ui/EventsWidget.astro";
       <Carousel banners={banners} client:idle />
     </section>
 
-    <!-- Iconografia de secciones rapidas -->
-    <section class="section-light py-4">
-      <div class="m-auto max-w-7xl px-6 text-center">
-        <h2 class="font-heading text-4xl font-bold text-green-900 mb-6">
-          Nuestra institución
-        </h2>
-        <p class="text-lg leading-relaxed text-gray-700">
-          El Centro Regional Universitario de Veraguas es un pilar fundamental
-          en el desarrollo educativo y social de la región central del país,
-          ofreciendo programas académicos de alta calidad que impulsan el
-          conocimiento y la innovación en nuestra comunidad.
-        </p>
+    <!-- Nuestra institución - Secciones rápidas y Estadísticas -->
+    <section class="section-light py-20">
+      <div class="mx-auto max-w-7xl px-6">
+        <div class="mb-16 text-center">
+          <h2 class="font-heading text-4xl font-bold text-green-900 mb-6">
+            Nuestra institución
+          </h2>
+          <p class="mx-auto max-w-3xl text-lg leading-relaxed text-gray-700">
+            El Centro Regional Universitario de Veraguas es un pilar fundamental
+            en el desarrollo educativo y social de la región central del país,
+            ofreciendo programas académicos de alta calidad que impulsan el
+            conocimiento y la innovación en nuestra comunidad.
+          </p>
+        </div>
+
+        <div
+          class="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16 items-start"
+        >
+          <!-- Left: Quick Access Cards (2x2 Grid) -->
+          <div class="lg:col-span-7">
+            <QuickAccess
+              standalone={false}
+              gridClassName="grid grid-cols-1 sm:grid-cols-2 gap-6"
+            />
+          </div>
+
+          <!-- Right: Stats Grid in Premium Light Container -->
+          <div class="lg:col-span-5">
+            <div
+              class="rounded-3xl bg-white p-6 sm:p-8 shadow-xl border border-gray-100 relative overflow-hidden group"
+            >
+              <!-- Decorative element for the stats box -->
+              <div
+                class="absolute -top-24 -right-24 h-64 w-64 rounded-full bg-green-500/5 blur-[80px] transition-all duration-700 group-hover:bg-green-500/10"
+              >
+              </div>
+
+              <div class="relative z-10">
+                <div class="mb-6 text-center">
+                  <h3
+                    class="font-heading text-md font-bold tracking-widest text-green-900 uppercase mb-2"
+                  >
+                    Oferta Académica en Cifras
+                  </h3>
+
+                  <div
+                    class="flex items-center justify-center gap-4 w-full max-w-xs mx-auto opacity-20"
+                  >
+                    <div class="flex-1 border-t border-dashed border-green-900">
+                    </div>
+                    <div class="shrink-0 text-green-900">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <line x1="18" y1="20" x2="18" y2="10"></line><line
+                          x1="12"
+                          y1="20"
+                          x2="12"
+                          y2="4"></line><line x1="6" y1="20" x2="6" y2="14"
+                        ></line>
+                      </svg>
+                    </div>
+                    <div class="flex-1 border-t border-dashed border-white">
+                    </div>
+                  </div>
+                </div>
+
+                <StatsGrid />
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <QuickAccess />
     </section>
 
     <!-- Career Search Section -->
