@@ -141,14 +141,53 @@ import EventsWidget from "@/components/ui/EventsWidget.astro";
       <Carousel banners={banners} client:idle />
     </section>
 
-    <!-- Nuestra institución - Secciones rápidas y Estadísticas -->
-    <section class="section-light py-20">
+    <!-- Oferta Académica en Cifras - Full Width Row -->
+    <section class="section-light pt-10 pb-10">
+      <div class="mx-auto max-w-7xl px-6">
+        <div class="text-center">
+          <h3
+            class="font-heading text-xl md:text-2xl lg:text-4xl font-bold text-green-900 uppercase mb-4"
+          >
+            Oferta Académica en Cifras
+          </h3>
+
+          <div
+            class="flex items-center justify-center gap-4 w-full max-w-xs mx-auto opacity-20"
+          >
+            <div class="flex-1 border-t border-dashed border-green-900"></div>
+            <div class="shrink-0 text-green-900">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <line x1="18" y1="20" x2="18" y2="10"></line>
+                <line x1="12" y1="20" x2="12" y2="4"></line>
+                <line x1="6" y1="20" x2="6" y2="14"></line>
+              </svg>
+            </div>
+            <div class="flex-1 border-t border-dashed border-green-900"></div>
+          </div>
+        </div>
+
+        <StatsGrid />
+      </div>
+    </section>
+
+    <!-- Nuestra institución - Secciones rápidas -->
+    <section class="section-light pt-10 pb-20">
       <div class="mx-auto max-w-7xl px-6">
         <div class="mb-16 text-center">
-          <h2 class="font-heading text-4xl font-bold text-green-900 mb-6">
+          <h3 class="text-xl md:text-2xl lg:text-4xl font-bold text-green-900 mb-6">
             Nuestra institución
-          </h2>
-          <p class="mx-auto max-w-3xl text-lg leading-relaxed text-gray-700">
+          </h3>
+          <p class="mx-auto max-w-7xl text-lg leading-relaxed text-gray-700">
             El Centro Regional Universitario de Veraguas es un pilar fundamental
             en el desarrollo educativo y social de la región central del país,
             ofreciendo programas académicos de alta calidad que impulsan el
@@ -156,70 +195,12 @@ import EventsWidget from "@/components/ui/EventsWidget.astro";
           </p>
         </div>
 
-        <div
-          class="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16 items-start"
-        >
-          <!-- Left: Quick Access Cards (2x2 Grid) -->
-          <div class="lg:col-span-7">
-            <QuickAccess
-              standalone={false}
-              gridClassName="grid grid-cols-1 sm:grid-cols-2 gap-6"
-            />
-          </div>
-
-          <!-- Right: Stats Grid in Premium Light Container -->
-          <div class="lg:col-span-5">
-            <div
-              class="rounded-3xl bg-white p-6 sm:p-8 shadow-xl border border-gray-100 relative overflow-hidden group"
-            >
-              <!-- Decorative element for the stats box -->
-              <div
-                class="absolute -top-24 -right-24 h-64 w-64 rounded-full bg-green-500/5 blur-[80px] transition-all duration-700 group-hover:bg-green-500/10"
-              >
-              </div>
-
-              <div class="relative z-10">
-                <div class="mb-6 text-center">
-                  <h3
-                    class="font-heading text-md font-bold tracking-widest text-green-900 uppercase mb-2"
-                  >
-                    Oferta Académica en Cifras
-                  </h3>
-
-                  <div
-                    class="flex items-center justify-center gap-4 w-full max-w-xs mx-auto opacity-20"
-                  >
-                    <div class="flex-1 border-t border-dashed border-green-900">
-                    </div>
-                    <div class="shrink-0 text-green-900">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="20"
-                        height="20"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      >
-                        <line x1="18" y1="20" x2="18" y2="10"></line><line
-                          x1="12"
-                          y1="20"
-                          x2="12"
-                          y2="4"></line><line x1="6" y1="20" x2="6" y2="14"
-                        ></line>
-                      </svg>
-                    </div>
-                    <div class="flex-1 border-t border-dashed border-white">
-                    </div>
-                  </div>
-                </div>
-
-                <StatsGrid />
-              </div>
-            </div>
-          </div>
+        <!-- Center the 2x2 grid -->
+        <div class="mx-auto max-w-7xl">
+          <QuickAccess
+            standalone={false}
+            gridClassName="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8"
+          />
         </div>
       </div>
     </section>
@@ -343,45 +324,6 @@ import EventsWidget from "@/components/ui/EventsWidget.astro";
           <aside class="lg:col-span-4">
             <EventsWidget events={events} />
           </aside>
-        </div>
-      </div>
-    </section>
-
-    <!-- Stats — green band -->
-    <section class="section-green relative py-20">
-      <div
-        class="absolute top-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-gold-500/40 to-transparent"
-      >
-      </div>
-      <div
-        class="absolute bottom-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-gold-500/20 to-transparent"
-      >
-      </div>
-
-      <div class="mx-auto grid max-w-5xl grid-cols-2 gap-8 px-6 md:grid-cols-4">
-        <div class="text-center">
-          <p class="font-heading text-3xl font-bold text-gold-400 md:text-4xl">
-            50+
-          </p>
-          <p class="mt-2 text-sm text-white/60">Carreras</p>
-        </div>
-        <div class="text-center">
-          <p class="font-heading text-3xl font-bold text-gold-400 md:text-4xl">
-            40+
-          </p>
-          <p class="mt-2 text-sm text-white/60">Años de trayectoria</p>
-        </div>
-        <div class="text-center">
-          <p class="font-heading text-3xl font-bold text-gold-400 md:text-4xl">
-            5000+
-          </p>
-          <p class="mt-2 text-sm text-white/60">Estudiantes activos</p>
-        </div>
-        <div class="text-center">
-          <p class="font-heading text-3xl font-bold text-gold-400 md:text-4xl">
-            20+
-          </p>
-          <p class="mt-2 text-sm text-white/60">Proyectos de investigación</p>
         </div>
       </div>
     </section>
