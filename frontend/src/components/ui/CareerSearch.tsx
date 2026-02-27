@@ -36,7 +36,7 @@ const CareerSearch: React.FC = () => {
           </select>
         </div>
 
-        <div className="flex flex-col gap-2 min-w-[300px]">
+        <div className="flex flex-col gap-2 min-w-[00px]">
           <label htmlFor="faculty-filter" className="text-sm font-semibold text-gold-200 ml-1">
             Facultad
           </label>
@@ -75,56 +75,55 @@ const CareerSearch: React.FC = () => {
           filteredCareers.map((career) => (
             <div
               key={career.id}
-              className="group relative flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-white p-6 shadow-2xl transition-all duration-500 hover:-translate-y-2 hover:border-gold-400/50"
+              className="group relative flex flex-col overflow-hidden rounded-3xl border border-white/10 bg-white p-6 shadow-2xl transition-all duration-700 hover:-translate-y-4 hover:shadow-[0_40px_80px_-15px_rgba(0,0,0,0.3)]"
             >
-              <div className="absolute top-0 right-0 p-3">
-                <span className="inline-block rounded-full bg-green-50 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-green-700 border border-green-100">
+              <div className="absolute top-0 right-0 p-4">
+                <span className="inline-block rounded-full bg-green-50 px-4 py-1.5 text-[10px] font-bold uppercase tracking-wider text-green-700 border border-green-100">
                   {career.level}
                 </span>
               </div>
 
-              <div className="mb-4 text-xs font-semibold text-gold-600 uppercase tracking-wide">
+              <div className="mb-5 text-xs font-semibold text-gold-600 uppercase tracking-wide">
                 {career.faculty}
               </div>
 
-              <h3 className="mb-3 font-heading text-lg font-bold text-gray-900 transition-colors group-hover:text-green-800">
+              <h3 className="mb-4 font-heading text-xl font-bold text-gray-900 transition-colors group-hover:text-green-800">
                 {career.name}
               </h3>
 
-              <div className="mb-4 flex items-center gap-2 text-sm text-gray-500">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="text-green-600/60">
+              <div className="mb-5 flex items-center gap-2 text-sm text-gray-500">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="text-green-600/60">
                   <circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" />
                 </svg>
                 {career.duration}
               </div>
 
-              <p className="mt-auto text-sm leading-relaxed text-gray-600 transition-colors group-hover:text-gray-900 line-clamp-3">
+              <p className="mt-auto text-sm leading-relaxed text-gray-600 transition-colors group-hover:text-gray-950 line-clamp-4">
                 {career.graduateProfile}
               </p>
 
-              <div className="mt-6 flex items-center justify-between">
+              <div className="mt-8">
                 <a
                   href={`/oferta-academica/${career.id}`}
-                  className="group/link flex items-center gap-1 text-sm font-bold text-green-700 hover:text-green-900 transition-colors"
+                  className="group/link flex items-center justify-between w-full rounded-2xl bg-gold-400 px-6 py-4 text-sm font-bold text-green-950 transition-all duration-300 hover:bg-gold-500 hover:shadow-lg hover:shadow-gold-500/30"
                 >
-                  Ver plan
-                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" className="transition-transform group-hover/link:translate-x-1">
-                    <path d="M5 12h14m-7-7 7 7-7 7" />
-                  </svg>
+                  <span className="flex items-center gap-2">
+                    Ver plan de estudio
+                  </span>
+                  <div className="flex items-center justify-center transition-transform duration-300 group-hover/link:translate-x-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M5 12h14m-7-7 7 7-7 7" />
+                    </svg>
+                  </div>
                 </a>
-                <div className="h-8 w-8 rounded-full bg-green-50 flex items-center justify-center text-green-700 transition-all duration-300 group-hover:bg-gold-500 group-hover:text-white group-hover:rotate-45">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                    <line x1="12" y1="5" x2="12" y2="19" /><line x1="5" y1="12" x2="19" y2="12" />
-                  </svg>
-                </div>
               </div>
             </div>
           ))
         ) : (
-          <div className="col-span-full py-20 text-center">
-            <div className="mb-4 text-4xl opacity-50">🔍</div>
-            <h3 className="text-xl font-bold text-white">No se encontraron carreras</h3>
-            <p className="text-white/60 mt-2">Intenta ajustar los filtros para encontrar lo que buscas.</p>
+          <div className="col-span-full py-24 text-center">
+            <div className="mb-6 text-5xl opacity-50 grayscale">🔍</div>
+            <h3 className="text-2xl font-bold text-white">No hay coincidencias</h3>
+            <p className="text-white/60 mt-3 max-w-sm mx-auto">Prueba ajustando los filtros de nivel o facultad para descubrir nuestras carreras.</p>
           </div>
         )}
       </div>
