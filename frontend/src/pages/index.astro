@@ -141,11 +141,17 @@ import EventsWidget from "@/components/ui/EventsWidget.astro";
     </section>
 
     <!-- Iconografia de secciones rapidas -->
-    <section class="section-light py-12">
-      <div class="flex m-auto justify-center">
-        <h1 class="text-center font-bold text-4xl text-green-900">
-          Nuestra institucion
-        </h1>
+    <section class="section-light py-4">
+      <div class="m-auto max-w-7xl px-6 text-center">
+        <h2 class="font-heading text-4xl font-bold text-green-900 mb-6">
+          Nuestra institución
+        </h2>
+        <p class="text-lg leading-relaxed text-gray-700">
+          El Centro Regional Universitario de Veraguas es un pilar fundamental
+          en el desarrollo educativo y social de la región central del país,
+          ofreciendo programas académicos de alta calidad que impulsan el
+          conocimiento y la innovación en nuestra comunidad.
+        </p>
       </div>
       <QuickAccess />
     </section>
@@ -269,137 +275,6 @@ import EventsWidget from "@/components/ui/EventsWidget.astro";
           <aside class="lg:col-span-4">
             <EventsWidget events={events} />
           </aside>
-        </div>
-      </div>
-    </section>
-
-    <!-- Audience Quick Access — light -->
-    <section class="section-light relative py-20">
-      <div class="mx-auto max-w-6xl px-6">
-        <div class="grid gap-6 md:grid-cols-3">
-          <!-- Students -->
-          <div class="light-card card-standard">
-            <div class="card-icon card-icon--green">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-              >
-                <path
-                  d="M10.75 16.82A7.462 7.462 0 0 1 15 15.5c.71 0 1.396.098 2.046.282A.75.75 0 0 0 18 15.06v-11a.75.75 0 0 0-.546-.721A9.006 9.006 0 0 0 15 3a8.963 8.963 0 0 0-4.25 1.065V16.82ZM9.25 4.065A8.963 8.963 0 0 0 5 3c-.85 0-1.673.118-2.454.339A.75.75 0 0 0 2 4.06v11a.75.75 0 0 0 .954.721A7.506 7.506 0 0 1 5 15.5a7.462 7.462 0 0 1 4.25 1.32V4.065Z"
-                ></path>
-              </svg>
-            </div>
-            <h3 class="font-heading text-xl font-bold text-green-800">
-              Estudiantes
-            </h3>
-            <ul class="mt-4 space-y-2 text-sm text-gray-500">
-              <li>
-                <a
-                  href="/estudiantes/horarios"
-                  class="transition-colors hover:text-gold-700"
-                  >Horarios de clases</a
-                >
-              </li>
-              <li>
-                <a
-                  href="/estudiantes/tramites"
-                  class="transition-colors hover:text-gold-700">Trámites</a
-                >
-              </li>
-              <li>
-                <a
-                  href="/estudiantes/calendario-academico"
-                  class="transition-colors hover:text-gold-700"
-                  >Calendario académico</a
-                >
-              </li>
-              <li>
-                <a
-                  href="/estudiantes/becas"
-                  class="transition-colors hover:text-gold-700">Becas</a
-                >
-              </li>
-            </ul>
-          </div>
-          <!-- Faculty -->
-          <div class="light-card card-standard">
-            <div class="card-icon card-icon--green">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-              >
-                <path
-                  d="M10 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM3.465 14.493a1.23 1.23 0 0 0 .41 1.412A9.957 9.957 0 0 0 10 18c2.31 0 4.438-.784 6.131-2.1.43-.333.604-.903.408-1.41a7.002 7.002 0 0 0-13.074.003Z"
-                ></path>
-              </svg>
-            </div>
-            <h3 class="font-heading text-xl font-bold text-green-800">
-              Docentes
-            </h3>
-            <ul class="mt-4 space-y-2 text-sm text-gray-500">
-              <li>
-                <a
-                  href="/docentes/directorio"
-                  class="transition-colors hover:text-gold-700">Directorio</a
-                >
-              </li>
-              <li>
-                <a
-                  href="/docentes/convocatorias"
-                  class="transition-colors hover:text-gold-700">Convocatorias</a
-                >
-              </li>
-              <li>
-                <a
-                  href="/docentes/recursos"
-                  class="transition-colors hover:text-gold-700">Recursos</a
-                >
-              </li>
-            </ul>
-          </div>
-          <!-- Alumni -->
-          <div class="light-card card-standard">
-            <div class="card-icon card-icon--green">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M10 1c-1.716 0-3.408.106-5.07.31C3.806 1.45 3 2.414 3 3.517V16.75A2.25 2.25 0 0 0 5.25 19h9.5A2.25 2.25 0 0 0 17 16.75V3.517c0-1.103-.806-2.068-1.93-2.207A41.403 41.403 0 0 0 10 1ZM5.99 8.75A.75.75 0 0 1 6.74 8h.01a.75.75 0 0 1 .75.75v.01a.75.75 0 0 1-.75.75h-.01a.75.75 0 0 1-.75-.75v-.01Zm.75 1.417a.75.75 0 0 0-.75.75v.01c0 .414.336.75.75.75h.01a.75.75 0 0 0 .75-.75v-.01a.75.75 0 0 0-.75-.75h-.01Zm2.42-1.417a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Zm.75 1.417a.75.75 0 0 0 0 1.5h2.5a.75.75 0 0 0 0-1.5h-2.5Z"
-                  clip-rule="evenodd"></path>
-              </svg>
-            </div>
-            <h3 class="font-heading text-xl font-bold text-green-800">
-              Graduados
-            </h3>
-            <ul class="mt-4 space-y-2 text-sm text-gray-500">
-              <li>
-                <a
-                  href="/graduados/educacion-continua"
-                  class="transition-colors hover:text-gold-700"
-                  >Educación continua</a
-                >
-              </li>
-              <li>
-                <a
-                  href="/graduados/verificacion-titulo"
-                  class="transition-colors hover:text-gold-700"
-                  >Verificación de título</a
-                >
-              </li>
-              <li>
-                <a
-                  href="/graduados/asociacion"
-                  class="transition-colors hover:text-gold-700"
-                  >Asociación de egresados</a
-                >
-              </li>
-            </ul>
-          </div>
         </div>
       </div>
     </section>

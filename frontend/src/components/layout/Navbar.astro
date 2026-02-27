@@ -1,6 +1,6 @@
 ---
 import NavbarLogo from "./NavbarLogo.astro";
-import SearchButton from "./SearchButton.astro";
+import SearchOverlay from "./SearchOverlay";
 import MegaMenu from "./MegaMenu";
 import { MobileMenuButton } from "./MobileMenu";
 
@@ -27,7 +27,7 @@ const pathname = Astro.url.pathname;
 
       <!-- Right actions -->
       <div class="hidden items-center gap-2 lg:flex">
-        <SearchButton transparent={transparent} />
+        <SearchOverlay client:load transparent={transparent} />
       </div>
     </div>
   </div>
