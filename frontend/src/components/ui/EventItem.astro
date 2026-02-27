@@ -18,12 +18,12 @@ const month = dateObj
 
 <a
   href={`/eventos/${event.id}`}
-  class="group flex items-center gap-4 rounded-2xl border border-transparent bg-white p-4 transition-all duration-300 hover:border-gray-100 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-600 focus-visible:ring-offset-2"
+  class="group flex items-center gap-3 sm:gap-4 rounded-2xl border border-transparent bg-white p-3 sm:p-4 transition-all duration-300 hover:border-gray-100 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-600 focus-visible:ring-offset-2"
   aria-label={`Ver detalles del evento: ${event.title}`}
 >
   <!-- Highlighted Date Box -->
   <div
-    class="flex flex-col items-center justify-center min-w-[70px] h-[70px] rounded-xl bg-gray-50 border border-gray-100 transition-colors group-hover:bg-green-50 group-hover:border-green-100"
+    class="flex flex-col items-center justify-center min-w-[60px] h-[60px] sm:min-w-[70px] sm:h-[70px] rounded-xl bg-gray-50 border border-gray-100 transition-colors group-hover:bg-green-50 group-hover:border-green-100"
   >
     <span class="text-2xl font-bold text-green-900 leading-tight">
       {day}
