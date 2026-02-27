@@ -1,0 +1,84 @@
+---
+import type { NewsItem } from "../../lib/data/news";
+
+interface Props {
+  item: NewsItem;
+}
+
+const { item } = Astro.props;
+
+// Formatear la fecha para que se vea más natural
+const formattedDate = new Date(item.date).toLocaleDateString("es-ES", {
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+});
+---
+
+<article
+  class="group relative flex flex-col overflow-hidden rounded-2xl border border-gray-100 bg-white transition-all duration-300 hover:-translate-y-1 hover:shadow-xl focus-within:ring-2 focus-within:ring-green-600 focus-within:ring-offset-2"
+>
+  <!-- Aspect Ratio 16:9 Image Container -->
+  <div class="aspect-video w-full overflow-hidden bg-gray-100">
+    <img
+      src={item.image}
+      alt={item.title}
+      class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+      loading="lazy"
+    />
+
+    <!-- Category Badge -->
+    <div class="absolute top-4 left-4">
+      <span
+        class="inline-block rounded-full bg-green-900/80 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-white backdrop-blur-sm"
+      >
+        {item.category}
+      </span>
+    </div>
+  </div>
+
+  <!-- Content Padding -->
+  <div class="flex flex-1 flex-col p-6">
+    <time
+      datetime={item.date}
+      class="mb-2 text-xs font-semibold text-gray-500 uppercase tracking-wide"
+    >
+      {formattedDate}
+    </time>
+
+    <h3
+      class="mb-3 font-heading text-xl font-bold text-gray-900 line-clamp-2 group-hover:text-green-800 transition-colors"
+    >
+      <a href={`/noticias/${item.id}`} class="outline-none focus:underline">
+        <span class="absolute inset-0 z-10" aria-hidden="true"></span>
+        {item.title}
+      </a>
+    </h3>
+
+    <!-- Excerpt (line-clamp-3) -->
+    <p class="mb-6 text-sm leading-relaxed text-gray-600 line-clamp-3">
+      {item.excerpt}
+    </p>
+
+    <!-- Footer/Link -->
+    <div
+      class="mt-auto flex items-center gap-2 text-sm font-bold text-green-700"
+    >
+      <span>Leer más</span>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="16"
+        height="16"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="transition-transform group-hover:translate-x-1"
+      >
+        <path d="M5 12h14m-7-7 7 7-7 7"></path>
+      </svg>
+    </div>
+  </div>
+</article>

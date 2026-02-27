@@ -1,0 +1,95 @@
+---
+import type { EventItem } from "../../lib/data/events";
+
+interface Props {
+  event: EventItem;
+}
+
+const { event } = Astro.props;
+
+// Extraer día y mes
+const dateObj = new Date(event.date);
+const day = dateObj.getDate();
+const month = dateObj
+  .toLocaleDateString("es-ES", { month: "short" })
+  .replace(".", "")
+  .toUpperCase();
+---
+
+<a
+  href={`/eventos/${event.id}`}
+  class="group flex items-center gap-4 rounded-2xl border border-transparent bg-white p-4 transition-all duration-300 hover:border-gray-100 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-600 focus-visible:ring-offset-2"
+  aria-label={`Ver detalles del evento: ${event.title}`}
+>
+  <!-- Highlighted Date Box -->
+  <div
+    class="flex flex-col items-center justify-center min-w-[70px] h-[70px] rounded-xl bg-gray-50 border border-gray-100 transition-colors group-hover:bg-green-50 group-hover:border-green-100"
+  >
+    <span class="text-2xl font-bold text-green-900 leading-tight">
+      {day}
+    </span>
+    <span class="text-[10px] font-bold text-green-700 tracking-wider">
+      {month}
+    </span>
+  </div>
+
+  <!-- Event Details -->
+  <div class="flex flex-col gap-1 overflow-hidden">
+    <div class="flex justify-between gap-2">
+      <span
+        class="inline-block px-2 py-0.5 rounded-md bg-gold-50 text-[10px] font-bold text-gold-700 uppercase tracking-wide"
+      >
+        {event.type}
+      </span>
+      <span class="text-[10px] font-semibold text-gray-400 uppercase">
+        {event.time}
+      </span>
+    </div>
+
+    <h4
+      class="text-sm font-bold text-gray-900 line-clamp-2 transition-colors group-hover:text-green-800"
+    >
+      {event.title}
+    </h4>
+
+    <div class="flex items-center gap-1 text-[11px] text-gray-500">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="12"
+        height="12"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle
+          cx="12"
+          cy="10"
+          r="3"></circle>
+      </svg>
+      <span class="truncate">{event.location}</span>
+    </div>
+  </div>
+
+  <!-- Arrow Indicator -->
+  <div
+    class="ml-auto opacity-0 -translate-x-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="20"
+      height="20"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      class="text-green-600"
+    >
+      <path d="m9 18 6-6-6-6"></path>
+    </svg>
+  </div>
+</a>

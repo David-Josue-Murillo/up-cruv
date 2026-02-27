@@ -1,0 +1,16 @@
+---
+import type { NewsItem } from "../../lib/data/news";
+import NewsCard from "./NewsCard.astro";
+
+interface Props {
+  news: NewsItem[];
+}
+
+const { news } = Astro.props;
+---
+
+<div
+  class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-2 lg:gap-8"
+>
+  {news.map((item) => <NewsCard item={item} />)}
+</div>
