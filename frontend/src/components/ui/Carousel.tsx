@@ -19,7 +19,7 @@ export default function Carousel({ banners, autoInterval = 5000 }: CarouselProps
 
   return (
     <section
-      className='relative mx-auto w-full max-w-[1150px] px-4 py-12'
+      className='relative mx-auto w-full max-w-[1300px] px-4 py-12'
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       role='region'
