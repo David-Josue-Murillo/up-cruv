@@ -5,85 +5,111 @@ import logoImg from "@/assets/images/logo.webp";
 import anniversaryImg from "@/assets/images/90_year.png";
 import heroBg from "@/assets/images/hero-bg.jpg";
 import Carousel from "@/components/ui/Carousel";
+import QuickAccess from "@/components/ui/QuickAccess.astro";
 import { banners } from "@/lib/navigation/banners";
 ---
 
-<Layout title='Inicio' navbarTransparent>
+<Layout title="Inicio" navbarTransparent>
   <main>
     <!-- Hero -->
-    <section class='relative flex pt-10 items-center justify-center overflow-hidden text-white'>
+    <section
+      class="relative flex pt-10 items-center justify-center overflow-hidden text-white"
+    >
       <!-- Background image -->
-      <Image src={heroBg} alt='' class='absolute inset-0 h-full w-full object-cover' loading='eager' />
+      <Image
+        src={heroBg}
+        alt=""
+        class="absolute inset-0 h-full w-full object-cover"
+        loading="eager"
+      />
       <!-- Dark overlay -->
-      <div class='absolute inset-0 bg-green-950/60'></div>
+      <div class="absolute inset-0 bg-green-950/60"></div>
 
       <!-- Radial gradient spotlight -->
       <div
-        class='pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_40%,rgba(14,63,45,0.4)_0%,rgba(5,32,21,0.8)_70%,rgba(5,32,21,0.95)_100%)]'
+        class="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_40%,rgba(14,63,45,0.4)_0%,rgba(5,32,21,0.8)_70%,rgba(5,32,21,0.95)_100%)]"
       >
       </div>
 
       <!-- Bokeh orbs -->
       <div
-        class='pointer-events-none absolute -top-10 left-[15%] h-72 w-72 rounded-full bg-gold-500/10 blur-[100px] animate-[float_8s_ease-in-out_infinite]'
+        class="pointer-events-none absolute -top-10 left-[15%] h-72 w-72 rounded-full bg-gold-500/10 blur-[100px] animate-[float_8s_ease-in-out_infinite]"
       >
       </div>
       <div
-        class='pointer-events-none absolute bottom-20 right-[10%] h-96 w-96 rounded-full bg-green-400/8 blur-[120px] animate-[float_12s_ease-in-out_infinite_2s]'
+        class="pointer-events-none absolute bottom-20 right-[10%] h-96 w-96 rounded-full bg-green-400/8 blur-[120px] animate-[float_12s_ease-in-out_infinite_2s]"
       >
       </div>
       <div
-        class='pointer-events-none absolute top-1/3 right-1/4 h-40 w-40 rounded-full bg-gold-400/6 blur-[80px] animate-[pulse-glow_6s_ease-in-out_infinite]'
+        class="pointer-events-none absolute top-1/3 right-1/4 h-40 w-40 rounded-full bg-gold-400/6 blur-[80px] animate-[pulse-glow_6s_ease-in-out_infinite]"
       >
       </div>
 
       <!-- Pre-Columbian geometric pattern overlay -->
       <div
-        class='pointer-events-none absolute inset-0 opacity-[0.04]'
+        class="pointer-events-none absolute inset-0 opacity-[0.04]"
         style="background-image: url(&quot;data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 5 L55 30 L30 55 L5 30Z' fill='none' stroke='%23d4af37' stroke-width='0.5'/%3E%3Cpath d='M30 15 L45 30 L30 45 L15 30Z' fill='none' stroke='%23d4af37' stroke-width='0.3'/%3E%3C/svg%3E&quot;); background-size: 60px 60px;"
       >
       </div>
 
-      <div class='relative z-10 mx-auto flex w-full max-w-6xl items-center justify-center gap-8 px-6 lg:gap-18'>
+      <div
+        class="relative z-10 mx-auto flex w-full max-w-6xl items-center justify-center gap-8 px-6 lg:gap-18"
+      >
         <!-- Logo UP -->
-        <div class='hidden shrink-0 lg:block'>
+        <div class="hidden shrink-0 lg:block">
           <Image
             src={logoImg}
-            alt='Escudo de la Universidad de Panamá'
-            class='h-auto w-44 drop-shadow-[0_0_20px_rgba(212,175,55,0.3)]'
+            alt="Escudo de la Universidad de Panamá"
+            class="h-auto w-44 drop-shadow-[0_0_20px_rgba(212,175,55,0.3)]"
             width={176}
-            loading='eager'
+            loading="eager"
           />
         </div>
 
         <!-- Hero content -->
-        <div class='py-16 text-center'>
-          <h1 class='font-heading text-4xl leading-tight tracking-tight md:text-[3.5rem] lg:text-[2.75rem]'>
-            Centro Regional<br class='xl:hidden' /> Universitario<br />
-            <span class='text-gold-400'>de Veraguas</span>
+        <div class="py-16 text-center">
+          <h1
+            class="font-heading text-4xl leading-tight tracking-tight md:text-[3.5rem] lg:text-[2.75rem]"
+          >
+            Centro Regional<br class="xl:hidden" /> Universitario<br />
+            <span class="text-gold-400">de Veraguas</span>
           </h1>
-          <p class='mt-6 text-lg text-white/70 md:text-xl'>
-            Formando profesionales con excelencia académica<br class='hidden sm:block' />
+          <p class="mt-6 text-lg text-white/70 md:text-xl">
+            Formando profesionales con excelencia académica<br
+              class="hidden sm:block"
+            />
             desde Santiago, Veraguas.
           </p>
-          <div class='mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center'>
+          <div
+            class="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center"
+          >
             <!-- Oferta Académica — metallic gold with edge glow -->
-            <a href='/oferta-academica' class='btn-gold-glow'>
-              <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='currentColor' class='h-4 w-4'>
+            <a href="/oferta-academica" class="btn-gold-glow">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                class="h-4 w-4"
+              >
                 <path
-                  d='M10.75 16.82A7.462 7.462 0 0 1 15 15.5c.71 0 1.396.098 2.046.282A.75.75 0 0 0 18 15.06v-11a.75.75 0 0 0-.546-.721A9.006 9.006 0 0 0 15 3a8.963 8.963 0 0 0-4.25 1.065V16.82ZM9.25 4.065A8.963 8.963 0 0 0 5 3c-.85 0-1.673.118-2.454.339A.75.75 0 0 0 2 4.06v11a.75.75 0 0 0 .954.721A7.506 7.506 0 0 1 5 15.5a7.462 7.462 0 0 1 4.25 1.32V4.065Z'
+                  d="M10.75 16.82A7.462 7.462 0 0 1 15 15.5c.71 0 1.396.098 2.046.282A.75.75 0 0 0 18 15.06v-11a.75.75 0 0 0-.546-.721A9.006 9.006 0 0 0 15 3a8.963 8.963 0 0 0-4.25 1.065V16.82ZM9.25 4.065A8.963 8.963 0 0 0 5 3c-.85 0-1.673.118-2.454.339A.75.75 0 0 0 2 4.06v11a.75.75 0 0 0 .954.721A7.506 7.506 0 0 1 5 15.5a7.462 7.462 0 0 1 4.25 1.32V4.065Z"
                 ></path>
               </svg>
               Oferta Académica
             </a>
             <!-- Proceso de Admisión — ghost style -->
-            <a href='/admision' class='btn-ghost'>
-              <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='currentColor' class='h-4 w-4'>
+            <a href="/admision" class="btn-ghost">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                class="h-4 w-4"
+              >
                 <path
-                  d='m5.433 13.917 1.262-3.155A4 4 0 0 1 7.58 9.42l6.92-6.918a2.121 2.121 0 0 1 3 3l-6.92 6.918c-.383.383-.84.685-1.343.886l-3.154 1.262a.5.5 0 0 1-.65-.65Z'
+                  d="m5.433 13.917 1.262-3.155A4 4 0 0 1 7.58 9.42l6.92-6.918a2.121 2.121 0 0 1 3 3l-6.92 6.918c-.383.383-.84.685-1.343.886l-3.154 1.262a.5.5 0 0 1-.65-.65Z"
                 ></path>
                 <path
-                  d='M3.5 5.75c0-.69.56-1.25 1.25-1.25H10A.75.75 0 0 0 10 3H4.75A2.75 2.75 0 0 0 2 5.75v9.5A2.75 2.75 0 0 0 4.75 18h9.5A2.75 2.75 0 0 0 17 15.25V10a.75.75 0 0 0-1.5 0v5.25c0 .69-.56 1.25-1.25 1.25h-9.5c-.69 0-1.25-.56-1.25-1.25v-9.5Z'
+                  d="M3.5 5.75c0-.69.56-1.25 1.25-1.25H10A.75.75 0 0 0 10 3H4.75A2.75 2.75 0 0 0 2 5.75v9.5A2.75 2.75 0 0 0 4.75 18h9.5A2.75 2.75 0 0 0 17 15.25V10a.75.75 0 0 0-1.5 0v5.25c0 .69-.56 1.25-1.25 1.25h-9.5c-.69 0-1.25-.56-1.25-1.25v-9.5Z"
                 ></path>
               </svg>
               Proceso de Admisión
@@ -92,75 +118,155 @@ import { banners } from "@/lib/navigation/banners";
         </div>
 
         <!-- 90 Años -->
-        <div class='hidden shrink-0 lg:block'>
+        <div class="hidden shrink-0 lg:block">
           <Image
             src={anniversaryImg}
-            alt='90 Años — Universidad de Panamá 1935–2025'
-            class='h-auto w-44 drop-shadow-[0_0_20px_rgba(212,175,55,0.3)]'
+            alt="90 Años — Universidad de Panamá 1935–2025"
+            class="h-auto w-44 drop-shadow-[0_0_20px_rgba(212,175,55,0.3)]"
             width={176}
-            loading='eager'
+            loading="eager"
           />
         </div>
       </div>
     </section>
 
     <!-- Carousel de Noticias y Eventos -->
-     <section class="section-light">
-       <Carousel banners={banners} client:idle />
-     </section>
+    <section class="section-light pb-0!">
+      <Carousel banners={banners} client:idle />
+    </section>
+
+    <section class="section-light py-12">
+      <div class="flex m-auto justify-center">
+        <h1 class="text-center font-bold text-4xl text-green-900">Nuestra institucion</h1>
+      </div>
+      <QuickAccess />
+    </section>
 
     <!-- Audience Quick Access — light -->
-    <section class='section-light relative py-20'>
-      <div class='mx-auto max-w-6xl px-6'>
-        <div class='grid gap-6 md:grid-cols-3'>
+    <section class="section-light relative py-20">
+      <div class="mx-auto max-w-6xl px-6">
+        <div class="grid gap-6 md:grid-cols-3">
           <!-- Students -->
-          <div class='light-card card-standard'>
-            <div class='card-icon card-icon--green'>
-              <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='currentColor'>
+          <div class="light-card card-standard">
+            <div class="card-icon card-icon--green">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
                 <path
-                  d='M10.75 16.82A7.462 7.462 0 0 1 15 15.5c.71 0 1.396.098 2.046.282A.75.75 0 0 0 18 15.06v-11a.75.75 0 0 0-.546-.721A9.006 9.006 0 0 0 15 3a8.963 8.963 0 0 0-4.25 1.065V16.82ZM9.25 4.065A8.963 8.963 0 0 0 5 3c-.85 0-1.673.118-2.454.339A.75.75 0 0 0 2 4.06v11a.75.75 0 0 0 .954.721A7.506 7.506 0 0 1 5 15.5a7.462 7.462 0 0 1 4.25 1.32V4.065Z'
+                  d="M10.75 16.82A7.462 7.462 0 0 1 15 15.5c.71 0 1.396.098 2.046.282A.75.75 0 0 0 18 15.06v-11a.75.75 0 0 0-.546-.721A9.006 9.006 0 0 0 15 3a8.963 8.963 0 0 0-4.25 1.065V16.82ZM9.25 4.065A8.963 8.963 0 0 0 5 3c-.85 0-1.673.118-2.454.339A.75.75 0 0 0 2 4.06v11a.75.75 0 0 0 .954.721A7.506 7.506 0 0 1 5 15.5a7.462 7.462 0 0 1 4.25 1.32V4.065Z"
                 ></path>
               </svg>
             </div>
-            <h3 class='font-heading text-xl font-bold text-green-800'>Estudiantes</h3>
-            <ul class='mt-4 space-y-2 text-sm text-gray-500'>
-              <li><a href='/estudiantes/horarios' class='transition-colors hover:text-gold-700'>Horarios de clases</a></li>
-              <li><a href='/estudiantes/tramites' class='transition-colors hover:text-gold-700'>Trámites</a></li>
-              <li><a href='/estudiantes/calendario-academico' class='transition-colors hover:text-gold-700'>Calendario académico</a></li>
-              <li><a href='/estudiantes/becas' class='transition-colors hover:text-gold-700'>Becas</a></li>
+            <h3 class="font-heading text-xl font-bold text-green-800">
+              Estudiantes
+            </h3>
+            <ul class="mt-4 space-y-2 text-sm text-gray-500">
+              <li>
+                <a
+                  href="/estudiantes/horarios"
+                  class="transition-colors hover:text-gold-700"
+                  >Horarios de clases</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/estudiantes/tramites"
+                  class="transition-colors hover:text-gold-700">Trámites</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/estudiantes/calendario-academico"
+                  class="transition-colors hover:text-gold-700"
+                  >Calendario académico</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/estudiantes/becas"
+                  class="transition-colors hover:text-gold-700">Becas</a
+                >
+              </li>
             </ul>
           </div>
           <!-- Faculty -->
-          <div class='light-card card-standard'>
-            <div class='card-icon card-icon--green'>
-              <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='currentColor'>
+          <div class="light-card card-standard">
+            <div class="card-icon card-icon--green">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
                 <path
-                  d='M10 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM3.465 14.493a1.23 1.23 0 0 0 .41 1.412A9.957 9.957 0 0 0 10 18c2.31 0 4.438-.784 6.131-2.1.43-.333.604-.903.408-1.41a7.002 7.002 0 0 0-13.074.003Z'
+                  d="M10 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM3.465 14.493a1.23 1.23 0 0 0 .41 1.412A9.957 9.957 0 0 0 10 18c2.31 0 4.438-.784 6.131-2.1.43-.333.604-.903.408-1.41a7.002 7.002 0 0 0-13.074.003Z"
                 ></path>
               </svg>
             </div>
-            <h3 class='font-heading text-xl font-bold text-green-800'>Docentes</h3>
-            <ul class='mt-4 space-y-2 text-sm text-gray-500'>
-              <li><a href='/docentes/directorio' class='transition-colors hover:text-gold-700'>Directorio</a></li>
-              <li><a href='/docentes/convocatorias' class='transition-colors hover:text-gold-700'>Convocatorias</a></li>
-              <li><a href='/docentes/recursos' class='transition-colors hover:text-gold-700'>Recursos</a></li>
+            <h3 class="font-heading text-xl font-bold text-green-800">
+              Docentes
+            </h3>
+            <ul class="mt-4 space-y-2 text-sm text-gray-500">
+              <li>
+                <a
+                  href="/docentes/directorio"
+                  class="transition-colors hover:text-gold-700">Directorio</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/docentes/convocatorias"
+                  class="transition-colors hover:text-gold-700">Convocatorias</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/docentes/recursos"
+                  class="transition-colors hover:text-gold-700">Recursos</a
+                >
+              </li>
             </ul>
           </div>
           <!-- Alumni -->
-          <div class='light-card card-standard'>
-            <div class='card-icon card-icon--green'>
-              <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='currentColor'>
+          <div class="light-card card-standard">
+            <div class="card-icon card-icon--green">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
                 <path
-                  fill-rule='evenodd'
-                  d='M10 1c-1.716 0-3.408.106-5.07.31C3.806 1.45 3 2.414 3 3.517V16.75A2.25 2.25 0 0 0 5.25 19h9.5A2.25 2.25 0 0 0 17 16.75V3.517c0-1.103-.806-2.068-1.93-2.207A41.403 41.403 0 0 0 10 1ZM5.99 8.75A.75.75 0 0 1 6.74 8h.01a.75.75 0 0 1 .75.75v.01a.75.75 0 0 1-.75.75h-.01a.75.75 0 0 1-.75-.75v-.01Zm.75 1.417a.75.75 0 0 0-.75.75v.01c0 .414.336.75.75.75h.01a.75.75 0 0 0 .75-.75v-.01a.75.75 0 0 0-.75-.75h-.01Zm2.42-1.417a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Zm.75 1.417a.75.75 0 0 0 0 1.5h2.5a.75.75 0 0 0 0-1.5h-2.5Z'
-                  clip-rule='evenodd'></path>
+                  fill-rule="evenodd"
+                  d="M10 1c-1.716 0-3.408.106-5.07.31C3.806 1.45 3 2.414 3 3.517V16.75A2.25 2.25 0 0 0 5.25 19h9.5A2.25 2.25 0 0 0 17 16.75V3.517c0-1.103-.806-2.068-1.93-2.207A41.403 41.403 0 0 0 10 1ZM5.99 8.75A.75.75 0 0 1 6.74 8h.01a.75.75 0 0 1 .75.75v.01a.75.75 0 0 1-.75.75h-.01a.75.75 0 0 1-.75-.75v-.01Zm.75 1.417a.75.75 0 0 0-.75.75v.01c0 .414.336.75.75.75h.01a.75.75 0 0 0 .75-.75v-.01a.75.75 0 0 0-.75-.75h-.01Zm2.42-1.417a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Zm.75 1.417a.75.75 0 0 0 0 1.5h2.5a.75.75 0 0 0 0-1.5h-2.5Z"
+                  clip-rule="evenodd"></path>
               </svg>
             </div>
-            <h3 class='font-heading text-xl font-bold text-green-800'>Graduados</h3>
-            <ul class='mt-4 space-y-2 text-sm text-gray-500'>
-              <li><a href='/graduados/educacion-continua' class='transition-colors hover:text-gold-700'>Educación continua</a></li>
-              <li><a href='/graduados/verificacion-titulo' class='transition-colors hover:text-gold-700'>Verificación de título</a></li>
-              <li><a href='/graduados/asociacion' class='transition-colors hover:text-gold-700'>Asociación de egresados</a></li>
+            <h3 class="font-heading text-xl font-bold text-green-800">
+              Graduados
+            </h3>
+            <ul class="mt-4 space-y-2 text-sm text-gray-500">
+              <li>
+                <a
+                  href="/graduados/educacion-continua"
+                  class="transition-colors hover:text-gold-700"
+                  >Educación continua</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/graduados/verificacion-titulo"
+                  class="transition-colors hover:text-gold-700"
+                  >Verificación de título</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/graduados/asociacion"
+                  class="transition-colors hover:text-gold-700"
+                  >Asociación de egresados</a
+                >
+              </li>
             </ul>
           </div>
         </div>
@@ -168,35 +274,54 @@ import { banners } from "@/lib/navigation/banners";
     </section>
 
     <!-- Stats — green band -->
-    <section class='section-green relative py-20'>
-      <div class='absolute top-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-gold-500/40 to-transparent'></div>
-      <div class='absolute bottom-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-gold-500/20 to-transparent'></div>
+    <section class="section-green relative py-20">
+      <div
+        class="absolute top-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-gold-500/40 to-transparent"
+      >
+      </div>
+      <div
+        class="absolute bottom-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-gold-500/20 to-transparent"
+      >
+      </div>
 
-      <div class='mx-auto grid max-w-5xl grid-cols-2 gap-8 px-6 md:grid-cols-4'>
-        <div class='text-center'>
-          <p class='font-heading text-3xl font-bold text-gold-400 md:text-4xl'>50+</p>
-          <p class='mt-2 text-sm text-white/60'>Carreras</p>
+      <div class="mx-auto grid max-w-5xl grid-cols-2 gap-8 px-6 md:grid-cols-4">
+        <div class="text-center">
+          <p class="font-heading text-3xl font-bold text-gold-400 md:text-4xl">
+            50+
+          </p>
+          <p class="mt-2 text-sm text-white/60">Carreras</p>
         </div>
-        <div class='text-center'>
-          <p class='font-heading text-3xl font-bold text-gold-400 md:text-4xl'>40+</p>
-          <p class='mt-2 text-sm text-white/60'>Años de trayectoria</p>
+        <div class="text-center">
+          <p class="font-heading text-3xl font-bold text-gold-400 md:text-4xl">
+            40+
+          </p>
+          <p class="mt-2 text-sm text-white/60">Años de trayectoria</p>
         </div>
-        <div class='text-center'>
-          <p class='font-heading text-3xl font-bold text-gold-400 md:text-4xl'>5000+</p>
-          <p class='mt-2 text-sm text-white/60'>Estudiantes activos</p>
+        <div class="text-center">
+          <p class="font-heading text-3xl font-bold text-gold-400 md:text-4xl">
+            5000+
+          </p>
+          <p class="mt-2 text-sm text-white/60">Estudiantes activos</p>
         </div>
-        <div class='text-center'>
-          <p class='font-heading text-3xl font-bold text-gold-400 md:text-4xl'>20+</p>
-          <p class='mt-2 text-sm text-white/60'>Proyectos de investigación</p>
+        <div class="text-center">
+          <p class="font-heading text-3xl font-bold text-gold-400 md:text-4xl">
+            20+
+          </p>
+          <p class="mt-2 text-sm text-white/60">Proyectos de investigación</p>
         </div>
       </div>
     </section>
 
     <!-- Placeholder: News & Events — light band -->
-    <section class='section-light relative py-20'>
-      <div class='mx-auto max-w-6xl px-6 text-center'>
-        <h2 class='font-heading text-3xl font-bold text-green-800'>Noticias y Eventos</h2>
-        <p class='mt-4 text-gray-500'>Esta sección se conectará con Strapi CMS para mostrar las últimas noticias y eventos del CRUV.</p>
+    <section class="section-light relative py-20">
+      <div class="mx-auto max-w-6xl px-6 text-center">
+        <h2 class="font-heading text-3xl font-bold text-green-800">
+          Noticias y Eventos
+        </h2>
+        <p class="mt-4 text-gray-500">
+          Esta sección se conectará con Strapi CMS para mostrar las últimas
+          noticias y eventos del CRUV.
+        </p>
       </div>
     </section>
   </main>

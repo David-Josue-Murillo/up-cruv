@@ -1,0 +1,109 @@
+---
+import { Image } from "astro:assets";
+import calendarImg from "@/assets/images/upCalendar.webp";
+import paymentImg from "@/assets/images/upPago.webp";
+import certsImg from "@/assets/images/upCertificaciones.webp";
+import virtualImg from "@/assets/images/upVirtual.webp";
+
+interface QuickAccessItem {
+  title: string;
+  image: ImageMetadata;
+  href: string;
+  description: string;
+}
+
+const items: QuickAccessItem[] = [
+  {
+    title: "Calendario Académico",
+    image: calendarImg,
+    href: "/estudiantes/calendario-academico",
+    description: "Fechas clave"
+  },
+  {
+    title: "Pagos en línea",
+    image: paymentImg,
+    href: "/estudiantes/pagos",
+    description: "Matrícula y servicios"
+  },
+  {
+    title: "Certificaciones",
+    image: certsImg,
+    href: "/estudiantes/tramites",
+    description: "Diplomas y créditos"
+  },
+  {
+    title: "Plataforma Virtual",
+    image: virtualImg,
+    href: "https://plataforma.up.ac.pa",
+    description: "Acceso a Moodle"
+  }
+];
+---
+
+<section class="section-light relative z-30 py-12">
+  <div class="mx-auto max-w-7xl px-6">
+    <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      {items.map((item) => (
+        <a
+          href={item.href}
+          class="group relative flex h-56 overflow-hidden rounded-2xl bg-gray-100 shadow-lg transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl dark:bg-gray-800"
+        >
+          <!-- Background Image -->
+          <Image
+            src={item.image}
+            alt={item.title}
+            class="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+          />
+
+          <!-- Gradient Overlay (Darkens on hover) -->
+          <div class="absolute inset-0 bg-linear-to-t from-gray-900 via-gray-900/40 to-transparent opacity-80 transition-opacity duration-300 group-hover:opacity-100"></div>
+
+          <!-- Content Wrapper -->
+          <div class="relative mt-28  flex w-full flex-col p-6 text-white transition-transform duration-300 group-hover:translate-y-[-8px]">
+            <!-- Border top accent -->
+            <div class="mb-4 h-0.5 w-8 bg-gold-400/80 transition-all duration-300 group-hover:w-full group-hover:bg-gold-400"></div>
+
+            <h3 class="font-heading text-lg font-bold leading-tight tracking-tight">
+              {item.title}
+            </h3>
+            <p class="mt-1 text-sm text-gray-200 transition-colors duration-300 group-hover:text-white">
+              {item.description}
+            </p>
+
+            <!-- CTA Arrow -->
+            <div class="mt-2 flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-gold-400 opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100 -translate-x-4">
+              Ir ahora
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14m-7-7 7 7-7 7"/>
+              </svg>
+            </div>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Staggered entry animation */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  a {
+    opacity: 0;
+    animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  a:nth-child(1) { animation-delay: 0.1s; }
+  a:nth-child(2) { animation-delay: 0.2s; }
+  a:nth-child(3) { animation-delay: 0.3s; }
+  a:nth-child(4) { animation-delay: 0.4s; }
+</style>
